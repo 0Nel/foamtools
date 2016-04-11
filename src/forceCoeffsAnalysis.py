@@ -191,15 +191,20 @@ def main (argv):
     Cl_r = numpy.array(raw[:,CL_r])
 
     Cm_avg = numpy.average(Cm)
+    Cm_std = numpy.std(Cm)
+    
     Cd_avg = numpy.average(Cd)
+    Cd_std = numpy.std(Cd)
+    
     Cl_avg = numpy.average(Cl)
+    Cl_std = numpy.std(Cl)
 
     Cl_f_avg = numpy.average(Cl_f)
     Cl_r_avg = numpy.average(Cl_r)
 
-    print "Average Drag Coefficient: ", Cd_avg
-    print "Average Lift Coefficient: ", Cl_avg
-    print "Average Moment Coefficient: ", Cm_avg
+    print "Average Drag Coefficient: ", Cd_avg, " +- ", Cd_std
+    print "Average Lift Coefficient: ", Cl_avg, " +- ", Cl_std
+    print "Average Moment Coefficient: ", Cm_avg, " +- ", Cm_std
 
     if not os.path.isdir('./plots'):
         os.mkdir('plots')
