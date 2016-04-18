@@ -201,8 +201,9 @@ def main (argv):
     Cl = 0.0
     Cm = 0.0
 
-    coeff_area = 0.01
-    u_c = 0.2
+    # coeff_area = 0.0051
+    coeff_area = 0.0008
+    u_c = 1
 
     # 2 * Fw / rho * u_c^2  * A
 
