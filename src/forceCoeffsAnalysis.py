@@ -63,8 +63,8 @@ def plot_fig (time, Cd, Cl, Cm, Cl_f, Cl_r):
 def plot_fig_fft (f, Cd_fft_abs, Cl_fft_abs, Cm_fft_abs):
     ## all the data is now loaded into the RAM
     plt.figure(7)
-    plt.plot(f, Cd_fft_abs)
-    plt.axis([0, 20, 0, 500])
+    plt.semilogx(f, Cd_fft_abs)
+    # plt.axis([0, 20, 0, 500])
     plt.grid()
     plt.xlabel("f")
     plt.ylabel("Amplitude FFT Cd")
@@ -72,8 +72,8 @@ def plot_fig_fft (f, Cd_fft_abs, Cl_fft_abs, Cm_fft_abs):
 
     ## all the data is now loaded into the RAM
     plt.figure(8)
-    plt.plot(f, Cl_fft_abs)
-    plt.axis([0, 20, 0, 500])
+    plt.semilogx(f, Cl_fft_abs)
+    # plt.axis([0, 20, 0, 500])
     plt.grid()
     plt.xlabel("f")
     plt.ylabel("Amplitude FFT Cl")
@@ -81,8 +81,8 @@ def plot_fig_fft (f, Cd_fft_abs, Cl_fft_abs, Cm_fft_abs):
 
     ## all the data is now loaded into the RAM
     plt.figure(9)
-    plt.plot(f, Cm_fft_abs)
-    plt.axis([0, 20, 0, 500])
+    plt.semilogx(f, Cm_fft_abs)
+    # plt.axis([0, 20, 0, 500])
     plt.grid()
     plt.xlabel("f")
     plt.ylabel("Amplitude FFT Cm")

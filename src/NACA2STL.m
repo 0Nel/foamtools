@@ -4,9 +4,13 @@
 
 % Foil geometry
 c = 1;                % Geometric chord length
-s = 0.1;                % Span (along y-axis)
+s = 1;                % Span (along y-axis)
 alpha = 0.0;         % Angle of attack (in radians) 15°
+<<<<<<< HEAD
 NACA = [0 0 1 2];     % NACA 4-digit designation as a row vector;
+=======
+NACA = [0 0 1 2];     % NACA 4-digit designation as a row vector;
+>>>>>>> 7692d38394dad6b37ad87ced8eb2a999ccc717ab
 
 % Surface resolution parameters
 Ni = 500;            % Number of interpolation points along the foil
