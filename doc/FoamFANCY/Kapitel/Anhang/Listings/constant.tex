@@ -1,0 +1,117 @@
+\chapter{\texttt{constant}}
+
+\begin{dict}{Datei \textit{constant/polyMesh/blockMesh}}{lst:blockMeshDict}
+
+/*--------------------------------*- C++ -*----------------------------------*\ 
+| =========                 |                                                 | 
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           | 
+|  \\    /   O peration     | Version:  2.1.0                                 | 
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      | 
+|    \\/     M anipulation  |                                                 | 
+\*---------------------------------------------------------------------------*/ 
+FoamFile                                                                        
+{                                                                               
+    version     2.0;                                                            
+    format      ascii;                                                          
+    class       dictionary;                                                     
+    object      blockMeshDict;                                                  
+}                                                                               
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * // 
+
+// globale Skalierungsgröße; gilt für das gesamte Gitter
+convertToMeters 1.000000; 
+
+// Die Eckpunkte des Gitters. Im Falle dieser Geometrie die äußeren Kanten, sowie die Kanten des NACA 0012 profils. Zu beachten ist dabei, dass der erste Knoten innerhalb von OpenFOAM als Knoten 0, anstelle von Knoten 1 angesprochen wird
+vertices 
+( 
+    (-7.530630 0.050000 1.581494)		// Knoten 0
+...
+    (16.000000 -0.050000 -8.000000)		//Knoten 23
+); 
+
+// Das gitter besteht insgesamt aus 6 Blöcken, welche im nachfolgenden Eintrag definiert werden. Wichtig zu beachten ist die Reihenfolge der angegebenen Kantenpunkte (vertices). Grundsätzlich ist egal in welcher Drehrichtung die Punkte angegeben werden, so lange die Drehrichtung beibehalten wird.
+blocks 
+( 
+    hex (4 5 1 0 16 17 13 12)     (74 100 1) edgeGrading (1 0.020000 0.020000 1 500.000000 500.000000 500.000000 500.000000 1 1 1 1) 
+...
+    hex (19 20 23 22 7 8 11 10)   (150 100 1) simpleGrading (100.000000 500.000000 1) 
+); 
+
+// An dieser Stelle werden die Kanten des Gitters definiert. OpenFOAM stellt dafür verschiedene Verfahren zur Verfügung, unter anderem gerade Kanten (edges), Splines (spline) und Kreisbögen (arc)
+edges 
+( 
+// Splineinterpolation entlang der angegebenen Koordinaten von Knoten 4 zu Knoten 5
+    spline 4 5 
+        ( 
+            (0.000159 0.050000 0.000682) 
+... 
+            (0.301576 0.050000 -0.002021) 
+        ) 
+    
+...
+// zur Übersicht wurden die restlichen Spline-Einträge gelöscht
+...        
+// Kreisbogen von Knoten 0 zu Knoten 1 mit dem Verbindungspunkt in den Klammern
+    arc 0 1 (-5.351755 0.050000 5.656854) 
+...
+    arc 12 21 (-5.351755 -0.050000 -5.656854) 
+); 
+
+// die Randbedingungen
+boundary 
+( 
+    inlet 
+    { 
+        type patch; 
+        faces 
+        ( 
+            (1 0 12 13) 
+            (0 9 21 12) 
+        ); 
+    } 
+
+    outlet 
+    { 
+        type patch; 
+        faces 
+        ( 
+            (11 8 20 23) 
+            (8 3 15 20) 
+        ); 
+    } 
+
+    topAndBottom 
+    { 
+        type patch; 
+        faces 
+        ( 
+            (3 2 14 15) 
+            (2 1 13 14) 
+            (9 10 22 21) 
+            (10 11 23 22) 
+        ); 
+    } 
+
+    airfoil 
+    { 
+        type wall; 
+        faces 
+        ( 
+            (5 4 16 17) 
+            (7 5 17 19) 
+            (4 6 18 16) 
+            (6 7 19 18) 
+        ); 
+    } 
+); 
+ 
+mergePatchPairs 
+( 
+); 
+ 
+// ************************************************************************* // 
+
+
+\end{dict}
+
+\newpage

@@ -1,0 +1,111 @@
+\chapter{Inital und Randbedingungen}
+
+In diesem Bereich passieren die meisten Fehler; aus diesem Grund sollte hier mit besonderer Vorsicht und Konzentration gearbeitet werden.
+
+Die Initial und Randbedingungen verteilen sich auf zwei Ordner: \textit{0} und \textit{constant}
+
+Es müssen an allen Rändern Randbedingungen definiert werden.
+
+Grundsätzlich unterscheidet \textsc{OpenFOAM} zwischen verschiedenen Patch-typen: \textit{base type}, \textit{primitve type} und \textit{derived type}. Dabei bedeutet \textit{base type} einfachste geometrische Definitionen. Es gibt nut zwei verschiedene Arten: \texttt{patch} und \texttt{wall}.
+
+Aus dem \textit{base type} ergeben sich die \textit{primitive types} für die Größe $ \Phi $ (siehe \autoref{tab:primitive}): 
+	
+	\begin{table}[htb]
+	  \centering
+	  \begin{tabular}{m{2.5cm}m{6cm}m{3cm}} 
+	  \toprule
+	    	Typ & Beschreibung & Festzulegende Werte \\
+	  \midrule
+			\texttt{fixedValue} & Wert für $ \Phi $ muss festgelegt werden & \texttt{value} \\
+			\texttt{fixedGradient} & Der Gradient für $ \Phi $ muss festgelegt werden & \texttt{gradient} \\
+			\texttt{zeroGradient} & Der Gradient von $ \Phi $ ist null & - \\
+			\texttt{calculated} & Die Werte für $ \Phi $ werden durch andere Größen bestimmt & - \\
+			\texttt{mixed} & Mischt \texttt{fixedValue} und \texttt{fixedGradient} abhängig vom Wert in 	\texttt{valueFraction} & \texttt{refValue, refGradient, valueFraction, value} \\
+			\texttt{directionMixed} & wie \texttt{valueFraction}, jedoch mit \texttt{valueFraction} als Tensor, sodass sich verschiedene Mischlevel in Normal- und Tangentialrichtung ergeben. & \texttt{refValue, refGradient, valueFraction, value} \\
+	  \bottomrule
+	  
+	  \end{tabular}
+	  \caption[Terme und ihre Bezeichnungen in OpenFOAM]{Terme und ihre Bezeichnungen in OpenFOAM}
+	  \label{tab:primitive}
+	\end{table} 
+
+Aus der Kombination dieser Typen lassen sich die sog. \textit{derived types} herleiten. Da es insgesamt 67 dieser Randbedingungen gibt, werden nachfolgend nur die wichtigsten aufgeführt. 
+
+
+SRFFreestreamVelocity
+SRFVelocity
+activeBaffleVelocity
+activePressureForceBaffleVelocity
+advective
+atmBoundaryLayerInletVelocity
+calculated
+codedFixedValue
+codedMixed
+cyclic
+cyclicACMI
+cyclicAMI
+cyclicSlip
+cylindricalInletVelocity
+directionMixed
+empty
+externalCoupled
+fixedGradient
+fixedInternalValue
+fixedJump
+fixedJumpAMI
+fixedMean
+fixedNormalInletOutletVelocity
+fixedNormalSlip
+fixedValue
+flowRateInletVelocity
+fluxCorrectedVelocity
+freestream
+inletOutlet
+interstitialInletVelocity
+kqRWallFunction
+mapped
+mappedField
+mappedFixedInternalValue
+mappedFixedPushedInternalValue
+mappedFlowRate
+mappedVelocityFlux
+mixed
+movingWallVelocity
+nonuniformTransformCyclic
+oscillatingFixedValue
+outletInlet
+outletMappedUniformInlet
+outletPhaseMeanVelocity
+partialSlip
+pressureDirectedInletOutletVelocity
+pressureDirectedInletVelocity
+pressureInletOutletParSlipVelocity
+pressureInletOutletVelocity
+pressureInletUniformVelocity
+pressureInletVelocity
+pressureNormalInletOutletVelocity
+processor
+processorCyclic
+rotatingPressureInletOutletVelocity
+rotatingWallVelocity
+sliced
+slip
+supersonicFreestream
+surfaceNormalFixedValue
+swirlFlowRateInletVelocity
+symmetry
+symmetryPlane
+timeVaryingMappedFixedValue
+translatingWallVelocity
+turbulentInlet
+uniformFixedGradient
+uniformFixedValue
+uniformInletOutlet
+uniformJump
+uniformJumpAMI
+variableHeightFlowRateInletVelocity
+waveTransmissive
+wedge
+zeroGradient
+
+\newpage

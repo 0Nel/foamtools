@@ -1,0 +1,4 @@
+$(OBJECTS_DIR)/fishParticle.o: $(EXE_DEP)
+$(OBJECTS_DIR)/fishParticle.o:
+	@SOURCE_DIR=.
+	SOURCE=fishParticle.C ; $(Ctoo)

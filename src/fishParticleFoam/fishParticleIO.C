@@ -1,0 +1,137 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Copyright (C) 1991-2010 OpenCFD Ltd.
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+License
+    This file is part of OpenFOAM.
+
+    OpenFOAM is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+    for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+
+\*---------------------------------------------------------------------------*/
+
+#include "fishParticle.H"
+#include "IOstreams.H"
+
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+Foam::fishParticle::fishParticle
+(
+    const Cloud<fishParticle>& cloud,
+    Istream& is,
+    bool readFields
+)
+:
+    Particle<fishParticle>(cloud, is, readFields)
+{
+    if (readFields)
+    {
+        if (is.format() == IOstream::ASCII)
+        {
+            d_ = readScalar(is);
+            is >> U_;
+        }
+        else
+        {
+            is.read
+            (
+                reinterpret_cast<char*>(&d_),
+                sizeof(d_) + sizeof(U_)
+            );
+        }
+    }
+
+    // Check state of Istream
+    is.check("fishParticle::fishParticle(Istream&)");
+}
+
+
+void Foam::fishParticle::readFields(Cloud<fishParticle>& c)
+{
+    if (!c.size())
+    {
+        return;
+    }
+    IOField<scalar> d(c.fieldIOobject("d", IOobject::MUST_READ));
+    c.checkFieldIOobject(c, d);
+
+    IOField<vector> U(c.fieldIOobject("U", IOobject::MUST_READ));
+    c.checkFieldIOobject(c, U);
+
+    label i = 0;
+    forAllIter(Cloud<fishParticle>, c, iter)
+    {
+        fishParticle& p = iter();
+
+        p.d_ = d[i];
+        p.U_ = U[i];
+        i++;
+    }
+}
+
+
+void Foam::fishParticle::writeFields(const Cloud<fishParticle>& c)
+{
+    Particle<fishParticle>::writeFields(c);
+
+    label np = c.size();
+
+    IOField<scalar> d(c.fieldIOobject("d", IOobject::NO_READ), np);
+    IOField<vector> U(c.fieldIOobject("U", IOobject::NO_READ), np);
+
+    label i = 0;
+    forAllConstIter(Cloud<fishParticle>, c, iter)
+    {
+        const fishParticle& p = iter();
+
+        d[i] = p.d_;
+        U[i] = p.U_;
+        i++;
+    }
+
+    d.write();
+    U.write();
+}
+
+
+// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
+
+Foam::Ostream& Foam::operator<<(Ostream& os, const fishParticle& p)
+{
+    if (os.format() == IOstream::ASCII)
+    {
+        os  << static_cast<const Particle<fishParticle>&>(p)
+            << token::SPACE << p.d_
+            << token::SPACE << p.U_;
+    }
+    else
+    {
+        os  << static_cast<const Particle<fishParticle>&>(p);
+        os.write
+        (
+            reinterpret_cast<const char*>(&p.d_),
+            sizeof(p.d_) + sizeof(p.U_)
+        );
+    }
+
+    // Check state of Ostream
+    os.check("Ostream& operator<<(Ostream&, const fishParticle&)");
+
+    return os;
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,94 @@
+\chapter{Tabellen und Quelltexte}
+\section{Tabellen}
+\blindtext
+
+\begin{table}[htb]
+  \centering
+  \caption{Eine einfache Tabelle}
+  \begin{tabular}{lcr}
+          & Zeiten     &   \\ 
+    \toprule
+    Ziel      & Abfahrt    & Dauer \\ 
+    \midrule
+    Frankfurt & stündlich & 3:20 \\ 
+    Berlin    & stündlich & 5:40 \\ 
+    Hamburg   & alle 5 h  & 5:20 \\ 
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes.\footnote{das hier soll in der Fußnote stehen} Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern? Oder gehörten die Schritte hinter ihm zu einem der unzähligen Gesetzeshüter dieser Stadt, und die stählerne Acht um seine Handgelenke würde gleich zuschnappen?
+
+Er konnte die Aufforderung stehen\footnote{das hier auch} zu bleiben schon hören. Gehetzt sah er sich um. Plötzlich erblickte er den schmalen Durchgang. Blitzartig drehte er sich nach rechts und verschwand zwischen den beiden Gebäuden. Beinahe wäre er dabei über den umgestürzten Mülleimer gefallen, der mitten im Weg lag. Er versuchte, sich in der Dunkelheit seinen Weg zu ertasten und erstarrte: Anscheinend gab es keinen anderen Ausweg aus diesem kleinen Hof als den Durchgang, durch den er gekommen war.\footnote{und noch eine Fußnote}
+
+\begin{table}[htb]
+  \centering
+  \caption{Testtabelle}
+  \begin{tabular}{@{}*{4}{l}@{}}
+    \toprule
+    Nominativ & Genetiv & Dativ & Akkusativ \\
+    \midrule
+    die Frau & der Frau   & der Frau  & die Frau \\
+    der Mann & des Mannes & dem Manne & den Mann \\
+    das Kind & des Kindes & dem Kinde & das Kind \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Schritte wurden lauter und lauter, er sah eine dunkle Gestalt um die Ecke biegen. Fieberhaft irrten seine Augen durch die nächtliche Dunkelheit und suchten einen Ausweg. War jetzt wirklich alles vorbei, waren alle Mühe und alle Vorbereitungen umsonst? Er presste sich ganz eng an die Wand hinter ihm und hoffte, der Verfolger würde ihn übersehen, als plötzlich neben ihm mit kaum wahrnehmbarem Quietschen eine Tür im nächtlichen Wind hin und her schwang.\cite{Kuckuk1988} Könnte dieses der flehentlich herbeigesehnte Ausweg aus seinem Dilemma sein? Langsam bewegte er sich auf die offene Tür zu, immer dicht an die Mauer gepresst. Würde diese Tür seine Rettung werden?
+
+\blindtext
+\begin{align}
+  z_0 &= d = 0 \\
+  z_{n+1} &= z_n^2+c
+\end{align}
+\blindtext
+
+\section{Quelltexte}
+\blindtext
+
+\subsection{\LaTeX}
+\blindtext
+
+\begin{lstlisting}[%
+  language={[LaTeX]Tex},
+  caption=\LaTeX{} Code,
+  backgroundcolor=\color{white},
+  %frame=single,
+  framerule=0.1pt,
+  keywords={\toprule, \midrule, bottomrule}
+]
+\begin{table}[htb]
+  \centering
+  \caption{Testtabelle}
+  \begin{tabular}{@{}*{4}{l}@{}}
+    \toprule
+    Nominativ & Genetiv & Dativ & Akkusativ \\
+    \midrule
+    die Frau & der Frau   & der Frau  & die Frau \\
+    der Mann & des Mannes & dem Manne & den Mann \\
+    das Kind & des Kindes & dem Kinde & das Kind \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\end{lstlisting}
+
+\subsection{Fortran}
+\blindtext
+
+%% Fortran Listing einbinden mit eigener lstlisting-Umgebung, siehe Headerdatei 
+\begin{fortran}{Beispielcode Fortran 77}{lst:fortran01}
+C23456789012345678901234567890
+C Beispiel in Fortran
+      PROGRAM MAIN
+      DIMENSION A(10)
+      DO I=1,10
+          A(I) = I
+          I = I + 1
+      END DO
+      GO TO 30
+      J = J + 1
+30    END
+\end{fortran}
+
+\blindtext

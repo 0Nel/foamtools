@@ -1,0 +1,50 @@
+\chapter{Linux}
+
+OpenFOAM ist grundsätzlich auf verschiedenen Betriebssystemen lauffähig. Innerhalb dieses Dokuments wird jedoch davon ausgegangen, dass OpenFOAM unter einem modernen UNIX Betriebssystem (streng genommen sollte dadurch MAC OS X davon ausgenommen werden, da MAC grundlegende POSIX-Richtlinien links liegen lässt und (mal wieder) den armen Nutzern vorgaukelt es würde alles viel besser machen. Was in diesem Fall nicht stimmt, da es durch die POSIX-Violation erheblichen Aufwand erfordert OpenFOAM unter MAC zum laufen zu bekommen. Sollte der Leser aber unter MAC OS X arbeiten, gehe ich davon aus, dass er entweder eine Virtuelle Maschine mit einem anständigen Betriebssystem zur Verfügung hat oder so gut ist, dass er OpenFOAM gepatcht und von Hand kompiliert hat. Sollte letzteres der Fall sein, darf der Leser getrost das folgende Kapitel überspringen) wie bspw. Linux läuft. 
+\\
+\section{Was, Warum und Wer ist Linux}
+Linux ist streng genommen zunächst mal eine Software, welche in der Lage ist mit Hardware zu kommunizieren und Kommunikationskanäle zwischen den verschiedenen Hardwarekomponenten eines Computers zur Verfügung zu stellt. Linux stellt somit den elementaren Teil eines Betriebssystems dar (für Leser die \underline{nicht} wissen, wass was ein Betriebssystem ist; Wikipedia ist treuer als so manches Haustier und geduldiger als so manche Ehefrau... ;-) ). In Kombination mit viel anderer Software (welche gemeinhin als Distribution bezeichnet wird) stellt es ein freies \footnote{frei nicht immer im Sinne von kostenlos. Frei in dem Sinn, dass der Quellcode frei Verfügbar ist und jeder diesen Quellcode nutzen darf (durchaus auch zur kommerziellen Nutzung).} Betriebssystem zur Verfügung. Populäre Distributionen sind u.A. Ubuntu, Debian, OpenSUSE, Fedora, Arch Linux, Cent OS, uvm. Diesen Distrubtionen ist gemein, dass Sie alle im Kern auf Linux basieren und dem POSIX-Standard genügen.
+
+Die vorhandenen Linuxdistributionen bietet den unschlagbaren Vorteil, dass es von vielen Nerds, verteilt über den ganzen Globus \footnote{Fun Fact: und darüber hinaus; die Laptops der ISS-Besatzung laufen auf Debian; die Rechner auf Arktisforschungsstationen und Tiefseerobotern ebenfalls. Linux IST überall.} verteilt entwickelt wird. Wobei die verschiedenen Distributionen verschiedene Anwender im Fokus haben. Allen gemein ist es jedoch, dass es äußerst einfach ist neue Software auf Linux zum laufen zu bringen. Was wiederum der freien Zugänglichkeit der Software geschuldet ist. Anyways, es gibt viele, viele weitere Gründe warum Linux wunderbar und fabelhaft ist, sicherlich ebenbürtig viele Gründe die gegen das Betriebssystem sprechen \footnote{u.A.: http://ubuntuforums.org/showthread.php?t=1852199 , http://linuxhaters.blogspot.de/}. 
+\\
+Der Grund warum dieses Dokument mit einem Kapitel über Linux beginnt ist einfach: OpenFOAM ist genau genommen kein einzelnes Programm, sondern eine gigantische Bibliothek (auch als Framework bezeichnet) an Software, deren Gemeinsamkeit darin besteht, das sie alle über eine Konsole bedient werden. Linux stellt eine POSIX-konforme Konsolenumgebung zur Verfügung, welche, unter den richtigen Umständen und mit dem richtigen Wissen genutzt, äußerst effizientes Arbeiten erlaubt. Dazu folgen im nächsten Kapitel die wichtigsten Befehle.
+
+\section{Die wichtigsten Konsolenbefehle}
+
+\begin{table}[htb]
+  \centering
+%  \begin{tabular}{@{}*{2}{l}@{}} 
+  \begin{tabular}{m{3cm}m{9cm}} 
+  \toprule
+    	Befehl & Aktion \\
+  \midrule
+  
+    	man BEFEHL & Der wichtigste Befehl überhaupt; öffnet ein Handbuch mit Erklärungen und Beispielen zum Befehl BEFEHL \\
+    	
+    	cd PFAD & change directory. Wechselt in das angegebene Verzeichnis \\
+    	
+    	cp [-rv] QUELLE ZIEL & kopiert QUELLE nach ZIEL. vorsicht, überschreibt auch Dateien. Das kopieren von Verzeichnissen ist nur mit der Option -r möglich \\
+    	
+    	rm [-rfv] DATE1 VERZEICHNIS1 ... & löscht die/das DATEI1/VERZEICHNIS1 \footnote{ACHTUNG: löschen heißt \underline{\textbf{NICHT}} in den Papierkorb verschieben. Löschen heisst töten, umbringen, über den Jordan, kurz: es ist unwiederruflich.} \footnote{naja fast: mein Stundenlohn beträgt 150 € / h} \\
+    	
+    	cat DATEI & gibt den gesamten Inhalt von DATEI auf der Konsole aus. \\
+    	
+    	less DATEI & öffnet die Datei DATEI und ermöglicht ein skrollen, springen und durchsuchen der Datei mittels Tastenkombinationen. \\
+    	
+    	tail [-fn ZAHL] DATEI & gibt den letzten Teil einer Datei aus oder gibt kontinuierlich aus was in die Datei DATEI geschrieben wird. \\
+    	
+    	BEFEHL1 | BEFEHL2 & das Sonderzeichen | (auch als pipe bezeichnet) verknüpft zwei Befehl miteinander, so dass der output des ersten Befehls als input für den zweiten Befehl genutzt werden kann. \\
+    	
+    	grep [-Rinl] SCHLAGWORT VERZEICHNIS/DATEI & durchsucht die Datei DATEI oder alle Dateien im Verzeichnis VERZEICHNIS nach SCHLAGWORT. \\ 
+    	
+    	find VERZEICHNIS -iname NAME -type TYP -exec BEFEHL & Durchsucht VERZEICHNIS nach Dateien des Typs TYP mit dem namen NAME und führt (wenn so spezifiziert) den befehl BEFEHL aus. \\
+		
+  \bottomrule
+  
+     
+  \end{tabular}
+  \caption[Konsolenbefehle]{Konsolenbefehle}
+  \label{tab:befehle} 
+\end{table}
+
+\newpage

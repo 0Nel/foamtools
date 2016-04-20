@@ -1,0 +1,42 @@
+\chapter{Checkliste zu \textit{snappyHexMesh}}
+
+Diese Checkliste orientiert sich an der allgemeinen Struktur der \textit{snappyHexMesh}-Kontrolldatei \textit{snappyHexMeshDict}.
+\\
+\\
+\begin{Form}
+
+\Square{} Prismatische Zellschichten an der Oberfläche? -> auf true setzen
+
+\Square{} Name der Inputdatei (normalerweise stl-datei) festgelegt?
+
+\Square{} maxLocalCells > gewünschte Anzahl der Zellen?
+
+\Square{}  maxLocalCells < 80\% RAM?
+
+\Square{} maxGlobalCells < 80\% RAM?
+
+\Square{} refinementBox(en) festgelegt?
+
+\Square{} maxLoadUnbalance < 0.11?
+
+\Square{} nCellsBetweenLayers < 3 (für sehr große Gitter)?
+
+\Square{} nCellsBetweenLayers > 3 (für kleine Gitter und 2D)?
+
+\Square{} features in Benutzung -> refinementLevel == min. surfaceRefinement?
+
+\Square{} surfaceRefinement?
+
+\Square{} refinementBox? -> in refinementRegions festlegen?
+
+\Square{} meshSelection nicht auf Fläche?
+
+\Square{} gitter zu wellig? surfaceFeatureExtract benutzen und nSmoothPatch hoch
+
+\Square{} surfaceLayers? -> Name des Patches, nicht geometrie!
+
+\Square{} es werden keine Layer generiert? nGrow auf 0 oder 1
+
+\end{Form}
+
+\newpage

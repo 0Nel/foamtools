@@ -1,0 +1,72 @@
+\chapter{Formeln zu \textit{RANS-Randbedingungen}}
+
+Formelsammlung zum abschätzen der Initalwerte für RANS-basierte Tubulenzmodelle.
+Folgende Variablen haben feste Werte:
+
+\begin{table}
+  \centering
+  \caption{Feste Variablen}
+  \begin{tabular}{m{4cm}m{8cm}}
+    \toprule
+    	Variable & Wert oder Formel \\
+    \midrule
+    	 $ T_{u} = \frac{u'}{U} = 0.001 .. 0.1 $ & Turbulenzintesität \\
+		 $ C_{\mu} = 0.09 $ & Standardvariable in vielen RANS-Modellen \\
+		 $ L $ & Turbulente Längenskala \\
+		 $ u' $ & Turbulente Schwankungsgeschwindigkeit	\\	 
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Empirische Formeln zur Abschätzung der turbulenten Viskosität \textit{ $ \tilde{ \nu } $ } }
+  \begin{tabular}{m{4cm}m{8cm}}
+    \toprule
+    	Formel & Anmerkung \\
+    \midrule
+    	 $ \tilde{\nu} = 1.2247 \cdot ( U \cdot I \cdot L ) $ & Freie Umströmung \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Empirische Formeln zur Abschätzung der turbulenten kinetischen Energie \textit{k}}
+  \begin{tabular}{m{4cm}m{8cm}}
+    \toprule
+    	Formel & Anmerkung \\
+    \midrule
+    	 $ k = 1.5 \cdot (T_{u} \cdot U_{in})^{2} $ & Freie Umströmung \\
+		 $ k = T_{u}^{2} \cdot \bar{U_{in}}^{2}$ & Abgewandelte Form \\		 
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Empirische Formeln zur Abschätzung der Dissipationsrate \textit{$ \varepsilon $}}
+  \begin{tabular}{m{4cm}m{8cm}}
+    \toprule
+    	Formel & Anmerkung \\
+    \midrule
+    	 $ \varepsilon = \frac{ C_{\nu} \cdot k^{1.5}}{0.03 \cdot L} $ & Freie Anströmung \\
+		 $ \varepsilon = \frac{ C_{\mu}^{0.75} \cdot k^{1.5}}{0.03 \cdot L} $ & Abgewandelte Form \\		 
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Empirische Formeln zur Abschätzung der spezifischen Dissipationsrate \textit{$ \omega $}}
+  \begin{tabular}{m{4cm}m{8cm}}
+    \toprule
+    	Formel & Anmerkung \\
+    \midrule
+    	 $ \omega = \frac{ \sqrt{k} }{ L } $ & mit L = turbulente Längenskale \\
+		 $ \omega = \frac{ \varepsilon }{ k } $ & Standard \\		 
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\newpage

@@ -1,0 +1,5 @@
+OBJECTS = \
+$(OBJECTS_DIR)/fishParticle.o\
+$(OBJECTS_DIR)/fishParticleIO.o\
+$(OBJECTS_DIR)/fishParticleCloud.o\
+$(OBJECTS_DIR)/fishParticleFoam.o

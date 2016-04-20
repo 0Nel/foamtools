@@ -1,0 +1,109 @@
+\input{Header/header}
+%
+%\documentclass[a4paper,11pt]{article}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage{lmodern}
+%\usepackage{ngerman}
+\usepackage{hyperref, wasysym}
+\usepackage{todonotes}
+%\usepackage{geometry}
+%
+%\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=15mm,rmargin=20mm}
+
+\title{\textit{FancyFOAM}\\Der Versuch einer umfassenden Dokumentation von \textsc{OpenFOAM}}
+
+\author{Aljoscha N. Sander}
+
+%% Silbentrennungen für bestimmte Wörter festlegen, kann auch
+%% in eine Datei ausgelagert und mittels \input eingebunden werden.
+\hyphenation{Recht-schreib-fehler}
+
+
+%%---------------------------------------------------------
+%% Hier beginnt das Dokument
+%%---------------------------------------------------------
+\begin{document}
+
+%% erstmal ohne Seitennummern
+%\include{titelseite}        %% Deckblatt
+%\include{erklaerung}        %% Erklärung, Sperrvermerk
+
+\maketitle
+
+\clearpage                     %% Seite beenden und ausgeben
+
+%%---------------------------------------------------------
+%% Verzeichnisse einfügen
+%%---------------------------------------------------------
+\ofoot[\pagemark]{\pagemark}   %% ab hier Seitenzahlen in Fußzeile anzeigen
+\pagenumbering{roman}          %% römische (kleine) Seitenzahlen vor dem Hauptteil
+
+\tableofcontents               %% Inhaltsverzeichnis einfügen
+
+\listoffigures                 %% Abbildungsverzeichnis bei Bedarf einfügen
+
+\listoftables                  %% Tabellenverzeichnis bei Bedarf einfügen
+
+\lstlistoflistings             %% Quelltextverzeichnis bei Bedarf einfügen
+
+\include{Kapitel/Abkuerzungen}
+
+\include{Kapitel/Symbole}
+
+\clearpage                     %% Seite beenden und ausgeben
+
+\begin{abstract}
+Dokumentation der wichtigsten Eigenschaften von OpenFOAM. 
+\end{abstract}
+
+\newpage
+
+
+%%---------------------------------------------------------
+%% Hier beginnt der Haupteil 
+%%---------------------------------------------------------
+\pagenumbering{arabic}    %% arabische Seitenzahlen im Hauptteil
+\ohead[]{\rightmark}      %% Kopfzeile mit Kapitelname (nicht auf Kapitelanfangsseiten)
+
+%%---------------------------------------------------------
+%% Die einzelnen Kapitel einbinden
+%%---------------------------------------------------------
+\input{Kapitel/Linux}
+\input{Kapitel/Stroemungsmechanik}
+\input{Kapitel/Turbulenz}
+\input{Kapitel/OpenFOAM}
+\input{Kapitel/Gittergenerierung}
+\input{Kapitel/Diskretisierungen}
+\input{Kapitel/Initial_Randbedingungen}
+\input{Kapitel/preproc}
+\input{Kapitel/Stationaer}
+\input{Kapitel/Instationaer}
+\input{Kapitel/Bewegte_Gitter}
+\input{Kapitel/Mehrphasen}
+\input{Kapitel/Waerme}
+\input{Kapitel/postproc}
+\input{Kapitel/Paraview}
+\input{Kapitel/Literatur}
+
+\clearpage
+\pagenumbering{Roman}    %% römische (große) Seitenzahlen nach dem Hauptteil
+
+
+%%---------------------------------------------------------
+%% Anhang, falls erforderlich
+%%---------------------------------------------------------
+\appendix                %% appendix ist keine Umgebung!
+
+%% Ab hier das Wort "Anhang" dem Kolumnentitel voranstellen
+\renewcommand*{\chaptermarkformat}{\chapapp~\thechapter\autodot\enskip}
+%% eine Seite mit dem Wort Anhang ausgeben (wie Kapitelanfangsseite ohne Kopfzeile)
+\addchap{Anhang}       
+\input{Kapitel/Anhang/Listings/constant.tex}
+\input{Kapitel/Anhang/Listings/system.tex}
+\input{Kapitel/Anhang/Listings/0.tex}
+\input{Kapitel/Anhang/Initial_Randbedingungen/turbulence.tex}
+\input{Kapitel/Anhang/Checklisten/checklist_snappy.tex}
+\input{Kapitel/Anhang/Checklisten/checklist_pimple.tex}
+
+\end{document}

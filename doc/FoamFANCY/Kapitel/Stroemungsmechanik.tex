@@ -1,0 +1,29 @@
+\chapter{Strömungsmechanik}
+
+\begin{itemize}
+	\item Impulsgleichung
+	\item Energiegleichung
+	\item Masseerhaltung
+	\item Impulsgleichung für inkompressible, newtonsche Fluide (N-S Gleichung)
+	\item Impulsgleichung für kompressible, newtonsche Fluide 
+\end{itemize}
+
+Wir gehen zunächst von einem inkompressiblen, newtonschen Medium für das die Kontinuumshypothese gilt aus. Dadurch wird die Impulsgleichung zur Navier-Stokes-Gleichung (\autoref{eq:ns}):
+
+\begin{equation}
+	\label{eq:ns}
+	\frac{\partial u_{i}}{\partial t} + u_{j} \frac{u_{i}}{x_{j}} = - \frac{ \frac{p}{\rho} + g k}{\partial x_{i}} + \nu \frac{\partial^{2} u_{i}}{\partial u_{j}^{2}}
+\end{equation}
+
+Durch die Inkompressibilität vereinfachst sich die Kontiuumsgleichung zu \autoref{eq:konti}:
+
+\begin{equation}
+	\label{eq:konti}
+	\frac{\partial u_{i}}{\partial x_{i}} = 0
+\end{equation}
+
+Der erste Term von \autoref{eq:ns}, $ \frac{\partial u_{i}}{\partial t} $ wird als instationärer Term bezeichnet, er repräsentiert den Einfluss der Änderung des Impulses über die Zeit. Der zweite Term $ u_{j} \frac{u_{i}}{x_{j}} $, auch als konvektiver Term bezeichnet, beschreibt die Impulstransport aufgrund von Geschwindigkeitsänderungen. Dieser Term ist nichtlinear. 
+Der dritte Term $ - \frac{ \frac{p}{\rho} + g k}{\partial x_{i}} $ ist der Druckgradient. In OpenFOAM wird der Druckgradient mit weiteren äußeren Kräften, wie z.B. der Gravitation (bei mehrphasigen Systemen) oder elektromagnetischen Kräften zusammengefasst. 
+Der letzte Term $ \nu \frac{\partial^{2} u_{i}}{\partial u_{j}^{2}} $, auch als diffusiver Term bezeichnet. 
+
+\newpage

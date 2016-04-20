@@ -1,0 +1,34 @@
+%%---------------------------------------------------
+%% Titelseite für Studienarbeiten,
+%% ensprechende Texte bei Bedarf ändern/löschen 
+%%---------------------------------------------------
+
+%% Warnung "destination with the same identifier (name{page.1})"
+%% unterdrücken, versursacht durch hyperref Paket
+\pagenumbering{alph}
+%%---------------------------------------------------
+
+\begin{titlepage}
+  \enlargethispage{2.5cm}   %% Textbereich etwas nach unten vergrößern
+  \begin{center}            %% Titelseite zentriert
+    \includegraphics[scale=0.4]{Abbildungen/logohsb.pdf}\\  %% Logo der Hochschule einbinden
+    Fakultät 5 -- Natur und Technik
+    
+    \vspace{12ex}                          %% Abstand
+    \huge{\textbf{\titel}}\\[7ex]          %% Titel der Arbeit einfügen
+    \LARGE{\textbf{\art}}\\[1.5ex]         %% Bachelor- oder Masterarbeit oder ...
+    \Large{im Fachgebiet {\fachgebiet}}    %% Fachgebiet innerhalb der Studienganges
+    \normalsize
+    \vfill                                 %% Abstand nach unten auffüllen
+
+    \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+      vorgelegt von:     & \autor\\[1.2ex]
+      Matrikel Nr.:      & \matrikel\\[1.2ex]
+      Fachrichtung:      & \fachrichtung\\[1.2ex]
+      Erstprüfer:        & \erstpruefer\\[1.2ex]
+      Zweitprüfer:       & \zweitpruefer\\[1.2ex]
+      Datum der Abgabe:  & \abgabedatum\\[2ex]
+    \end{tabularx}
+  
+  \end{center}
+\end{titlepage}

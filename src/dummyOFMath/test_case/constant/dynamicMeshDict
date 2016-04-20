@@ -1,0 +1,70 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.1                                |
+|   \\  /    A nd           | Web:         http://www.extend-project.de       |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+generate6DoFDict {
+	// translation
+	translationAmplitude    (1 0 0);
+  	translationFrequency    (1 0 0);
+
+  	// rotation
+  	rotationAmplitude		(0 0 1);
+  	rotationFrequency		(0 0 5);
+
+  	// control variables
+  	nTimes					10;
+}
+
+/*
+dynamicFvMesh dynamicMotionSolverFvMesh;
+
+solver RBFMotionSolver;
+
+movingPatches ( wing );
+
+staticPatches ( inlet outlet topAndBottom );
+
+coarseningRatio 5;
+
+includeStaticPatches   no;
+frozenInterpolation    yes;
+
+interpolation
+{
+    RBF  IMQB;
+    focalPoint (0.5 0 0);
+    innerRadius 0.5;//5.0
+    outerRadius 5.0;
+    polynomials true;
+
+    W2Coeffs
+    {
+        radius     1.0;
+    }
+    TPSCoeffs
+    {
+        radius     5.0;
+    }
+    GaussCoeffs
+    {
+        radius     0.1;
+    }
+    IMQBCoeffs
+    {
+        radius     0.001;
+    }
+}
+*/
+// ************************************************************************* //

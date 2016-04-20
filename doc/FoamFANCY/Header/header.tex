@@ -1,0 +1,210 @@
+\documentclass[
+  DIV=11,                 %% Satzspiegelkonstruktion, siehe KOMA-Script Anleitung
+  fontsize=11pt,          %% Text in Schriftgrad 11pt
+  BCOR=10mm,              %% Bindekorrektur, Klemmbindung verbraucht ca. 10mm
+  captions=tableheading,  %% Tabellen haben eine Überschrift!
+  headinclude=true,       %% Kopfzeile wird zum Satzspiegel gerechnet
+  footinclude=false,      %% Fußzeile zählt zum Seitenrand (weil nur Seitenzahl in Fußzeile)
+  headings=normal,        %% Überschriften etwas verkleinern (auf LARGE)
+  numbers=noenddot,       %% kein Endpunkt bei Gliederungsnummerierung
+  listof=flat,            %% Verzeichnisse der Gleitumgebungen nicht einrücken
+  %draft,                  %% Draftmodus, keine Bilder/Farben
+]{scrreprt}                
+
+
+\usepackage[T1]{fontenc}      %% europäische Zeichensätze
+\usepackage[utf8]{inputenc}   %% UTF-8 Kodierung, direkte Eingabe von Umlauten 
+\usepackage[ngerman]{babel}   %% deutsche Anpassungen
+
+%% Mathe-Pakete
+%% ------------------------------------------------------------------------------
+\usepackage{amsmath}       %% Matheumgebung
+%\usepackage{amsfonts}     %% zusätzliche Mathe Schriften
+%\usepackage{amssymb}      %% zusätzliche Symbole
+
+
+%% noch mehr Symbole bei Bedarf
+%% ------------------------------------------------------------------------------
+\usepackage{latexsym}      %% zusätzliche Symbole
+\usepackage{textcomp}      %% zusätzliche Symbole
+\usepackage{eurosym}       %% Euro Symbol
+
+
+\usepackage{siunitx}       %% richtige Schreibweise für SI Einheiten
+
+\usepackage{setspace}      %% Zeilenabstand anpassen
+
+
+%%------------------------------------------------------------------------------
+%% Schriftauswahl
+%%------------------------------------------------------------------------------
+%\usepackage{lmodern}                 %% Latin Modern
+
+%\usepackage{mathpazo}                %% Palatino
+
+\usepackage[charter]{mathdesign}      %% Charter
+
+%% für Charter und Palatino Zeilenabstand leicht erhöhen (1.05 bis 1.08)
+\setstretch{1.08}            %% Einstellung schriftabhängig, für Latin Modern deaktivieren!
+
+%% Bera Sans als serifenlose Schrift
+\usepackage{berasans}
+
+%% Bera Mono als monospaced Schrift (für fette Keywords in Listings)
+\usepackage[scaled]{beramono}
+%%------------------------------------------------------------------------------
+
+
+%% Satzspiegel nach Schriftauswahl neu berechnen
+\KOMAoptions{DIV=current}
+
+%% Überschriften für alle Gliederungsebenen in fett und der gleichen
+%% Schriftart wie den Standardtext setzen
+\setkomafont{disposition}{\normalfont\bfseries}
+
+
+%% Anpassung von Kopf- und Fußzeilen
+%%------------------------------------------------------------------------------
+\usepackage{scrpage2}        %% KOMA-Script Erweiterung für Kopf-/Fußzeilen
+\pagestyle{scrheadings}      %% Seitenstil scrheadings verwenden
+\clearscrheadfoot            %% alle Felder in Kopf- und Fußzeile löschen
+\automark[chapter]{chapter}  %% Kopfzeile: Kapitelname außen
+
+
+%% optischer Randausgleich
+\usepackage{microtype}
+
+%% korrektes Leerzeichen nach Makro
+\usepackage{xspace}
+
+%% einheitliche Anführungszeichen festlegen
+%% Aufruf: \enquote{was in Anführungszeichen stehen soll}
+\usepackage[
+  babel,
+  %german=guillemets,  %% spitze Klammern
+  german=quotes,       %% normale Anführungszeichen
+]{csquotes}
+
+
+%% erweiterte Farbmöglichkeiten mit xcolor
+%% Option [table] lädt das Package colortbl nach
+\usepackage[table]{xcolor}
+
+%% Abbildungen einbinden
+\usepackage{graphicx}
+
+%% Zeilenabstand in Auflistungen verringern
+%% Aufruf mit {enumerate*} bzw. {itemize*} 
+\usepackage{mdwlist}
+
+
+%% Tabellen
+%% ------------------------------------------------------------------------------
+\usepackage{booktabs}    %% für bessere Linien 	top-/mid-/bottomrule	
+\usepackage{tabularx}    %% erweiterte Tabellendefinitionen 
+\usepackage{longtable}  %% Lange Tabellen über mehr als eine Seite
+\usepackage[bottom]{footmisc}  %% verhindert, dass Bilder unter Fußnoten rutschen
+
+
+%% Tabellen- und Bildbeschreibungen anpassen
+%% ------------------------------------------------------------------------------
+\setlength\abovecaptionskip{2pt}    %% Abstand der Beschreibung zum Objekt
+%% Schrift für Label und Beschreibungstext wie für normalen Text
+\setkomafont{captionlabel}{\small\normalfont\bfseries}
+\setkomafont{caption}{\small\normalfont}
+
+
+%% Verarbeitung bibliografischer Daten mit Biblatex
+%% Über Option  backend  entweder biber oder bibtex verwenden
+%% Im Editor für Bib(la)tex folgenden Befehl eintragen:
+%%     biber %    oder    bibtex % 
+%% ------------------------------------------------------------------------------
+\usepackage[
+  style=numeric,   %% numerischer Stil
+  isbn=false,      %% keine ISBN ausgeben
+  url=false,       %% keine URL ausgeben
+  backend=biber,   %% entweder biber zur Verarbeitung von Literaturverweisen 
+  %backend=bibtex,   %% oder bibtex (veraltet, kann keine Umlaute verarbeiten) 
+  %backref,         %% Rückverweise auf Zitate
+]{biblatex}
+
+
+%% Darstellung im Literaturverzeichnis mit biblatex auf Name, Vorname umstellen
+%%------------------------------------------------------------------------------
+\DeclareNameFormat{default}{%
+\usebibmacro{name:last-first}{#1}{#3}{#5}{#7}%
+\usebibmacro{name:andothers}}
+
+
+%% Quellcode anzeigen, Standardeinstellungen
+%% ------------------------------------------------------------------------------
+\usepackage{listings}
+\renewcommand{\lstlistlistingname}{Quelltextverzeichnis}    %% Umbenennen
+\lstset{
+  float=tb,
+  captionpos=t,
+%   basicstyle=\small\ttfamily,
+  basicstyle=\tiny\ttfamily,
+  keywordstyle=\bfseries,
+  commentstyle=\ttfamily,
+  columns=fixed,
+  tabsize=2,
+  %frame=single,      %% einfache Linie als Umrandung
+  framerule=0.1pt,
+  extendedchars=true,
+  showspaces=false,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\sffamily\tiny,
+  breaklines=true,
+%  backgroundcolor=\color{black!10},      %% Hintergrundfarbe helles Grau
+  breakautoindent=true,
+  belowskip=2ex,
+  literate=%         %% Umlaute wg. utf8 ersetzen z.B.  ü durch \"u
+    {Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1
+    {ß}{{\ss}}1 {ü}{{\"u}}1 {ä}{{\"a}}1 {ö}{{\"o}}1
+}
+
+
+%% Listings-Umgebung für Fortan77 definieren, nur Inline Code!
+%% Aufruf mit:
+%% \begin{fortran}{Beschriftungstext}{lst:labelname}
+%%   hier der FORTAN-CODE
+%% \end{fortran}
+%%--------------------------------------------------------------
+\lstnewenvironment{fortran}[2]{%
+  \lstset{caption=#1,label=#2,language={[77]Fortran}}
+}
+{}
+
+\lstnewenvironment{dict}[2]{%
+  \lstset{caption=#1,label=#2,language={C++}}
+}
+{}
+%%--------------------------------------------------------------
+
+
+%% Warnungen von KOMA-Script für Entwickler umgehen
+\usepackage{scrhack}
+
+%% Blindtext
+\usepackage{blindtext}
+
+
+%% Verweise/Links für PDF, möglichst zuletzt laden!
+%-----------------------------------------------------------------------------
+\usepackage[
+  pdfborder={0 0 0},
+  %colorlinks=true,    %% farbige Links am Bildschirm, false oder deaktiviert für Ausdruck
+  pdfstartview=FitV,   %% wie soll Viewer starten?
+  linkcolor=blue,      %% Farbe für Querverweise
+  citecolor=blue,      %% Farbe für Zitierungen
+  urlcolor=blue,       %% Farbe für Links
+  bookmarks=true,      %% Lesezeichen im PDF
+  bookmarksnumbered,   %% nummerierte Kapitel
+  plainpages=false,
+]{hyperref}
+
+
+%% das offizelle Euro Symbol verwenden, muss nach hyperref stehen!
+\let\texteuro\euro

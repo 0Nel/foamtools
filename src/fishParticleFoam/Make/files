@@ -1,0 +1,7 @@
+fishParticle.C
+fishParticleIO.C
+fishParticleCloud.C
+fishParticleFoam.C
+
+
+EXE = $(FOAM_USER_APPBIN)/fishParticleFoam

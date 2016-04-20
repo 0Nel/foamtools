@@ -1,0 +1,31 @@
+\chapter{Bewegte Gitter}
+
+OpenFOAM bietet vielfältige Möglichkeiten Bewegungen in den Simulationen abzubilden. Im folgenden Kapitel sollen die wichtigsten Methoden kurz vorgestellt und erklärt werden. 
+\\
+Zunächst muss unterschieden werden, ob es sich bei der zu simulierenden Strömung um eine quasistationäre Strömung handelt, oder um eine echt instationäre. 
+
+\section{MRF}
+
+Für den Fall einer Quasistationären Bewegung, bspw. die Rotation einer gleichbleibenden Mixergeometrie oder Turbine bietet OpenFOAM die Möglichkeit mit sog. MRF-Solvern zu rechnen. MRF steht für \textit{Multi-Reference-Frame} und bedeutet, dass an Stelle eines echten bewegten Gitters in einem rotierenden Bezugssystem gerechnet wird. Dies birgt mehrere Vorteile, als auch Nachteile. Die Navier-Stokes-Gleichung verkompliziert sich durch die zusätzlichen Terme, welche durch das Rotierende Koordinatensystem in die Gleichung einfließen:
+
+\begin{equation}
+\label{eq:ns_rot}
+	\frac{Du}{Dt} = - \frac{1}{\rho} \cdot \nabla p - 2(\Omega \times u) - (\Omega \times r) + \nu \nabla^{2} u - g k
+\end{equation}
+
+Gleichung \ref{eq:ns_rot} zeigt die Navier-Stokes Gleichung für ein rotierendes Bezugssystem. 
+\\
+Die Vorteile eines solchen Bezugssystems sind, dass keine Bewegungsgleichungen für die Gitterpunkte gelöst werden müssen. Des Weiteren ist auch keine räumliche Interpolation der simulierten Größen vom alten Gitter zum neuen Gitter nötig. Dadurch lassen sich sowohl potentielle Fehler, als auch Rechenzeit verringern. 
+In der Standarddistribution (momentan: OpenFOAM 2.3.x) ist die Unterstützung für MRF grundsätzlich enthalten, unter Anderem in \textit{simpleFoam} und \textit{pimpleFoam}.
+\\
+Definiert wird die Rotation durch einen Eintrag in der Datei system/fvOptions, in der eine MRF-Option definiert wird. \autoref{lst:fvOptions} listet einen Beispieleintrag aus der Datei fvOptions. Der Code ist aus einem der zu OpenFOAM gehörenden Tutorials entnommen.
+
+
+\section{AMI}
+
+\textit{AMI} steht für \textit{Arbitrary Mesh Interface}, was so viel wie beliebige-Gitter-Schnittstelle bedeutet. Im Grunde genommen wird die Rechendomäne $ \Omega $ in mehrere Bereiche Unterteilt. An den Schnittstellen dieser Bereich werden die Simulationsgrößen interpoliert. Dadurch ist eine gleitende Bewegung der Gitter zueinander möglich, welche die Simulation von Bewegungen mit 6 Freiheitsgraden ermöglicht.
+\todo{bild eines AMI-Gitters einfügen}
+\\
+Um Simulationen mit dieser Technik durchzuführen sind mehrere Schritte nötig. 
+
+\newpage

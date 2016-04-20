@@ -1,0 +1,49 @@
+\BOOKMARK [0][-]{chapter.1}{1 Linux}{}% 1
+\BOOKMARK [1][-]{section.1.1}{1.1 Was, Warum und Wer ist Linux}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{1.2 Die wichtigsten Konsolenbefehle}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{2 Str\366mungsmechanik}{}% 4
+\BOOKMARK [0][-]{chapter.3}{3 Turbulenz}{}% 5
+\BOOKMARK [1][-]{section.3.1}{3.1 RANS}{chapter.3}% 6
+\BOOKMARK [1][-]{section.3.2}{3.2 LES/DES}{chapter.3}% 7
+\BOOKMARK [0][-]{chapter.4}{4 OpenFOAM}{}% 8
+\BOOKMARK [1][-]{section.4.1}{4.1 Installation}{chapter.4}% 9
+\BOOKMARK [1][-]{section.4.2}{4.2 Struktur}{chapter.4}% 10
+\BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 constant}{section.4.2}% 11
+\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 system}{section.4.2}% 12
+\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 0}{section.4.2}% 13
+\BOOKMARK [0][-]{chapter.5}{5 Gittergenerierung}{}% 14
+\BOOKMARK [1][-]{section.5.1}{5.1 blockMesh}{chapter.5}% 15
+\BOOKMARK [1][-]{section.5.2}{5.2 snappyHexMesh}{chapter.5}% 16
+\BOOKMARK [1][-]{section.5.3}{5.3 propriet\344re Gittergeneratoren}{chapter.5}% 17
+\BOOKMARK [0][-]{chapter.6}{6 Diskretisierungen und Gleichungsl\366ser}{}% 18
+\BOOKMARK [1][-]{section.6.1}{6.1 Diskretisierungsverfahren: fvSchemes}{chapter.6}% 19
+\BOOKMARK [2][-]{subsection.6.1.1}{6.1.1 Zeitliche Diskretisierung: ddtSchemes}{section.6.1}% 20
+\BOOKMARK [2][-]{subsection.6.1.2}{6.1.2 Konvektiver Term: divSchemes}{section.6.1}% 21
+\BOOKMARK [2][-]{subsection.6.1.3}{6.1.3 Gradienten: gradSchemes}{section.6.1}% 22
+\BOOKMARK [2][-]{subsection.6.1.4}{6.1.4 Diffusiver Term: laplacianSchemes}{section.6.1}% 23
+\BOOKMARK [2][-]{subsection.6.1.5}{6.1.5 Interpolation: interpolationSchemes}{section.6.1}% 24
+\BOOKMARK [1][-]{section.6.2}{6.2 Gleichungsl\366ser: fvSolution}{chapter.6}% 25
+\BOOKMARK [2][-]{subsection.6.2.1}{6.2.1 Symmetrische Matrizen}{section.6.2}% 26
+\BOOKMARK [0][-]{chapter.7}{7 Inital und Randbedingungen}{}% 27
+\BOOKMARK [0][-]{chapter.8}{8 Pre-Processing}{}% 28
+\BOOKMARK [0][-]{chapter.9}{9 Station\344re Rechnungen}{}% 29
+\BOOKMARK [1][-]{section.9.1}{9.1 SIMPLE-Algorithmus: simpleFoam}{chapter.9}% 30
+\BOOKMARK [0][-]{chapter.10}{10 Instation\344re Rechnugen}{}% 31
+\BOOKMARK [1][-]{section.10.1}{10.1 PIMPLE-Algorithmus: pimpleFoam}{chapter.10}% 32
+\BOOKMARK [1][-]{section.10.2}{10.2 PISO-Algorithmus: pisoFoam}{chapter.10}% 33
+\BOOKMARK [1][-]{section.10.3}{10.3 ICO-Algorithmus: icoFoam}{chapter.10}% 34
+\BOOKMARK [0][-]{chapter.11}{11 Bewegte Gitter}{}% 35
+\BOOKMARK [1][-]{section.11.1}{11.1 MRF}{chapter.11}% 36
+\BOOKMARK [1][-]{section.11.2}{11.2 AMI}{chapter.11}% 37
+\BOOKMARK [0][-]{chapter.12}{12 Mehrphasenrechnungen}{}% 38
+\BOOKMARK [0][-]{chapter.13}{13 W\344rme}{}% 39
+\BOOKMARK [0][-]{chapter.14}{14 Post-Processing}{}% 40
+\BOOKMARK [0][-]{chapter.15}{15 Paraview}{}% 41
+\BOOKMARK [0][-]{chapter.16}{16 Nachschlagewerke und Literatur}{}% 42
+\BOOKMARK [0][-]{appendix*.18}{Anhang}{}% 43
+\BOOKMARK [0][-]{appendix.A}{A constant}{}% 44
+\BOOKMARK [0][-]{appendix.B}{B system}{}% 45
+\BOOKMARK [0][-]{appendix.C}{C 0}{}% 46
+\BOOKMARK [0][-]{appendix.D}{D Formeln zu RANS-Randbedingungen}{}% 47
+\BOOKMARK [0][-]{appendix.E}{E Checkliste zu snappyHexMesh}{}% 48
+\BOOKMARK [0][-]{appendix.F}{F Checkliste zu pimpleFoam}{}% 49

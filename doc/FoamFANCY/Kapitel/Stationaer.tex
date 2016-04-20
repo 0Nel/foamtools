@@ -1,0 +1,22 @@
+\chapter{Stationäre Rechnungen}
+
+\section{\texttt{SIMPLE}-Algorithmus: \textsc{simpleFoam}}
+
+\texttt{SIMPLE} steht für \textit{Semi-Implicit Method for Pressure Linked Equations}. Dieses numerische Verfahren ist ein iterativer Algorithmus zum lösen der stationären Navier-Stokes-Gleichungen.
+
+Die iterativen Schritte sind wie folgt:
+
+\begin{enumerate}
+\item Die Randbedingungen setzen
+\item Die Gradienten von Druck und Geschwindigkeit berechnen
+\item Die diskretisierte Impulsgleichung lösen um das innere Geschwindigkeitsfeld zu berechnen
+\item Berechne den (unkorrigierten) Masseflux an den Zellflächen
+\item Löse die Druckkorrekturgleichung für alle Zellen
+\item Korrigiere das Druckfeld: $ p^{k+1} = p^{k} + f_{relax} \cdot p´ $, mit $ f_{relax} $ = Relaxationsfaktor für $ p $
+\item Korrigiere den Druck an den Randbedingungen
+\item Korrigiere den Massenfluss an den Zellflächen
+\item Korrigiere die Geschwindigkeiten in den Zellen
+\item Berechne die Dichte neu (Änderungen sind durch Druckänderungen möglich)
+\end{enumerate}
+
+\newpage

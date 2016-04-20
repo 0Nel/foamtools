@@ -1,0 +1,5 @@
+LOCAL_OBJECTS = \
+fishParticle.o\
+fishParticleIO.o\
+fishParticleCloud.o\
+fishParticleFoam.o
