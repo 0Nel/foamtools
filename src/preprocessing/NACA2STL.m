@@ -107,6 +107,20 @@ X = [ upper(1,:) lower(1,Ni-1:-1:2) ];
 Z = [ upper(2,:) lower(2,Ni-1:-1:2) ];
 N = length(X);
 
+% now open out a file to store the coordinates (for blockmesh/rhino purposes)
+% Open file
+pointfile = fopen('poinfile.dat', 'w');
+
+fprintf(pointfile, '# X-Y-Z-coordinates for a %s naca airfoil\n', num2str(NACA));
+fprintf(pointfile, '# angle of attack is: %s\n', num2str(alpha));
+fprintf(pointfile, '# chord length is: %s\n', num2str(c));
+fprintf(pointfile, '# X Y Z \n');
+
+for i=1:length(X)
+  fprintf(pointfile, '%e 0 %e\n', X(i), Z(i)); 
+end
+
+fclose(pointfile);
 
 % Triangulate the end surface
 tri = [1, 2, N];
