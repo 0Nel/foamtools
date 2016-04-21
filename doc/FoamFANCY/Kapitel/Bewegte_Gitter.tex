@@ -1,31 +1,200 @@
 \chapter{Bewegte Gitter}
 
-OpenFOAM bietet vielfÃ¤ltige MÃ¶glichkeiten Bewegungen in den Simulationen abzubilden. Im folgenden Kapitel sollen die wichtigsten Methoden kurz vorgestellt und erklÃ¤rt werden. 
+OpenFOAM bietet vielfältige Möglichkeiten Bewegungen in den Simulationen abzubilden. Im folgenden Kapitel sollen die wichtigsten Methoden kurz vorgestellt und erklärt werden. 
 \\
-ZunÃ¤chst muss unterschieden werden, ob es sich bei der zu simulierenden StrÃ¶mung um eine quasistationÃ¤re StrÃ¶mung handelt, oder um eine echt instationÃ¤re. 
+Zunächst muss unterschieden werden, ob es sich bei der zu simulierenden Strömung um eine quasistationäre Strömung handelt, oder um eine echt instationäre. 
+
+Zunächst gilt es den Typ von bewegtem Gitter festzulegen. Dies geschieht über die Datei \textit{contant/dynamicMeshDict}.
+Verfügbare Gittertypen sind:
+
+\begin{wraptable}{l}{3.5cm}
+	\centering
+	\caption{Dynamische Gittertypen}
+	\small
+	\begin{tabularx}{3cm}{X}
+		\toprule
+		Name \\
+		\midrule
+		dynamicInkJetFvMesh \\
+		dynamicMotionSolverFvMesh \\ 
+		dynamicRefineFvMesh \\
+		movingConeTopoFvMesh \\
+		multiSolidBodyMotionFvMesh \\
+		rawTopoChangerFvMesh \\
+		solidBodyMotionFvMesh \\
+		staticFvMesh \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:dynamicFvMesh}
+\end{wraptable}
+
+\newpage
+
 
 \section{MRF}
 
-FÃ¼r den Fall einer QuasistationÃ¤ren Bewegung, bspw. die Rotation einer gleichbleibenden Mixergeometrie oder Turbine bietet OpenFOAM die MÃ¶glichkeit mit sog. MRF-Solvern zu rechnen. MRF steht fÃ¼r \textit{Multi-Reference-Frame} und bedeutet, dass an Stelle eines echten bewegten Gitters in einem rotierenden Bezugssystem gerechnet wird. Dies birgt mehrere Vorteile, als auch Nachteile. Die Navier-Stokes-Gleichung verkompliziert sich durch die zusÃ¤tzlichen Terme, welche durch das Rotierende Koordinatensystem in die Gleichung einflieÃŸen:
+Für den Fall einer Quasistationären Bewegung, bspw. die Rotation einer gleichbleibenden Mixergeometrie oder Turbine bietet OpenFOAM die Möglichkeit mit sog. MRF-Solvern zu rechnen. MRF steht für \textit{Multi-Reference-Frame} und bedeutet, dass an Stelle eines echten bewegten Gitters in einem rotierenden Bezugssystem gerechnet wird. Dies birgt mehrere Vorteile, als auch Nachteile. Die Navier-Stokes-Gleichung verkompliziert sich durch die zusätzlichen Terme, welche durch das Rotierende Koordinatensystem in die Gleichung einfließen:
 
 \begin{equation}
 \label{eq:ns_rot}
 	\frac{Du}{Dt} = - \frac{1}{\rho} \cdot \nabla p - 2(\Omega \times u) - (\Omega \times r) + \nu \nabla^{2} u - g k
 \end{equation}
 
-Gleichung \ref{eq:ns_rot} zeigt die Navier-Stokes Gleichung fÃ¼r ein rotierendes Bezugssystem. 
+Gleichung \ref{eq:ns_rot} zeigt die Navier-Stokes Gleichung für ein rotierendes Bezugssystem. 
 \\
-Die Vorteile eines solchen Bezugssystems sind, dass keine Bewegungsgleichungen fÃ¼r die Gitterpunkte gelÃ¶st werden mÃ¼ssen. Des Weiteren ist auch keine rÃ¤umliche Interpolation der simulierten GrÃ¶ÃŸen vom alten Gitter zum neuen Gitter nÃ¶tig. Dadurch lassen sich sowohl potentielle Fehler, als auch Rechenzeit verringern. 
-In der Standarddistribution (momentan: OpenFOAM 2.3.x) ist die UnterstÃ¼tzung fÃ¼r MRF grundsÃ¤tzlich enthalten, unter Anderem in \textit{simpleFoam} und \textit{pimpleFoam}.
+Die Vorteile eines solchen Bezugssystems sind, dass keine Bewegungsgleichungen für die Gitterpunkte gelöst werden müssen. Des Weiteren ist auch keine räumliche Interpolation der simulierten Größen vom alten Gitter zum neuen Gitter nötig. Dadurch lassen sich sowohl potentielle Fehler, als auch Rechenzeit verringern. 
+In der Standarddistribution (momentan: OpenFOAM 2.3.x) ist die Unterstützung für MRF grundsätzlich enthalten, unter Anderem in \textit{simpleFoam} und \textit{pimpleFoam}.
 \\
-Definiert wird die Rotation durch einen Eintrag in der Datei system/fvOptions, in der eine MRF-Option definiert wird. \autoref{lst:fvOptions} listet einen Beispieleintrag aus der Datei fvOptions. Der Code ist aus einem der zu OpenFOAM gehÃ¶renden Tutorials entnommen.
+Definiert wird die Rotation durch einen Eintrag in der Datei system/fvOptions, in der eine MRF-Option definiert wird. \autoref{lst:fvOptions} listet einen Beispieleintrag aus der Datei fvOptions. Der Code ist aus einem der zu OpenFOAM gehörenden Tutorials entnommen.
 
+\newpage
 
 \section{AMI}
 
-\textit{AMI} steht fÃ¼r \textit{Arbitrary Mesh Interface}, was so viel wie beliebige-Gitter-Schnittstelle bedeutet. Im Grunde genommen wird die RechendomÃ¤ne $ \Omega $ in mehrere Bereiche Unterteilt. An den Schnittstellen dieser Bereich werden die SimulationsgrÃ¶ÃŸen interpoliert. Dadurch ist eine gleitende Bewegung der Gitter zueinander mÃ¶glich, welche die Simulation von Bewegungen mit 6 Freiheitsgraden ermÃ¶glicht.
-\todo{bild eines AMI-Gitters einfÃ¼gen}
+\textit{AMI} steht für \textit{Arbitrary Mesh Interface}, was so viel wie beliebige-Gitter-Schnittstelle bedeutet. Im Grunde genommen wird die Rechendomäne $ \Omega $ in mehrere Bereiche Unterteilt. An den Schnittstellen dieser Bereich werden die Simulationsgrößen interpoliert. Dadurch ist eine gleitende Bewegung der Gitter zueinander möglich, welche die Simulation von Bewegungen mit 6 Freiheitsgraden ermöglicht.
+\todo{bild eines AMI-Gitters einfügen}
 \\
-Um Simulationen mit dieser Technik durchzufÃ¼hren sind mehrere Schritte nÃ¶tig. 
+Um Simulationen mit dieser Technik durchzuführen sind mehrere Schritte nötig. 
 
 \newpage
+
+\section{RBF}
+
+\clearpage
+\newpage
+
+\section{dynamicTopoFvMesh}
+
+Diese Bibliothek ermöglicht CFD-Simulationen mit den höchsten Freiheitsgraden. Dies wurd durch eine dynamische Gittergenerierung zur Laufzeit der Simulationen gewährleistet. 
+Der Code ist experimentell und die Simulationen schwer zu kontrollieren. 
+
+Simulationen mit dieser numerischen Technik basieren auf einer Kombination aus der Gitterbibliothek \textit{Mesquite} und der eigentlichen Bibliothek \textit{dynamicTopoFvMesh}.
+
+\textbf{Momentan ist noch ein Programmierfehler vorhanden, der das saubere durchführen einer dynamischen simulation verhindert, wenn der parameter \texttt{allowTableResize} auf \texttt{yes} gesetzt ist. }
+
+\subsection{Mesquite}
+
+Diese Bibliothek ermöglicht das Glätten eines numerischen Gitters. Dazu wird eine skalare Qualitätsgröße, welche zu jedem Zeitschritt für jede einzelne Gitterzelle berechnet wird genutzt. Im Nachfolgenden sind diese aufgeführt.
+
+\begin{wraptable}{r}{8.5cm}
+	\centering
+	\caption{Qualitätsmerkmale für \textit{Mesquite}}
+	\small
+	\begin{tabularx}{8cm}{p{4cm} p{4cm}}
+		\toprule
+		Name & Formel \\
+		\midrule
+		\textit{UntangleBeta} & \\
+		\textit{AspectRatioGamma} & \\
+		\textit{InverseMeanRatio} & \\
+		\textit{EdgeLengthQuality} & \\
+		\textit{LocalSize} & \\
+		\textit{VertexConditionNumber}  & \\
+		\textit{ConditionNumber}  & \\
+		\textit{MeanRatio}  & \\
+		\textit{EdgeLength} & \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:qualität}
+\end{wraptable}
+
+\begin{wraptable}{r}{3.5cm}
+	\centering
+	\caption{Optimierungsalgorithmen}
+	\small
+	\begin{tabularx}{3cm}{X}
+		\toprule
+		Name \\
+		\midrule
+		\textit{SteepestDescent} \\
+		\textit{TrustRegion} \\
+		\textit{NonSmoothDescent} \\
+		\textit{ConjugateGradient} \\
+		\textit{SmartLaplacian} \\
+		\textit{QuasiNewton} \\
+		\textit{FeasibleNewton} \\
+		\textit{Laplacian} \\
+		\textit{Randomize} \\	
+		\bottomrule
+	\end{tabularx}
+	\label{tab:optimierung}
+\end{wraptable}
+
+\begin{table}
+	\centering
+	\caption{Optimierungsalgorithmen}
+	\small
+	\begin{tabularx}{10cm}{m{3cm} X}
+		\toprule
+		Name & \\
+		\midrule
+		angularOscillatingDisplacement & \\
+		angularOscillatingVelocity & \\
+		calculated & \\
+		cyclic & \\
+		empty & \\
+		fixedValue & \\
+		generic	 & \\
+		global & \\
+		mixed & \\
+		oscillatingDisplacement & \\
+		oscillatingFixedValue & \\
+		oscillatingVelocity & \\
+		processor & \\
+		slip & \\
+		surfaceDisplacement & \\
+		surfaceSlipDisplacement & \\
+		symmetryPlane & \\
+		timeVaryingUniformFixedValue & \\
+		uniformFixedValue & \\
+		value & \\
+		wedge & \\
+		zeroGradient  & \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:patches_bewegung}
+\end{table}
+
+\newpage
+
+\section{\textit{sixDoFRigidBodyMotionSolver}}
+
+
+
+\begin{table}
+	\centering
+	\caption{Constraints}
+	\small
+	\begin{tabularx}{\linewidth}{m{2cm} X}
+		\toprule
+		Name & Beschreibung\\
+		\midrule
+		axis & Nur translative Bewegung entlang einer Achse; keine Rotation, außer um diese Achse. Einziger benötigter Parameter ist die Ausrichtung der Achse \texttt{axis (x y z)}\\
+		line & Erlaubt translative Bewegungen nur in Richtung der festgelegten Linie. Rotation ist ebenfalls erlaubt. Benötigte Parameter sind: \texttt{CentreOfRotation (x y z)} und \texttt{orientation (x y z)}\\
+		orientation & \\
+		plane & \\
+		point & Setzt eine translative Begrenzung mit einem Punkt. Schlüsselwort ist \texttt{centreOfRotation (x y z)}. Wird dies nicht gesetzt und es werden keine anderen constraints gesetzt, wird automatisch der Masseschwerpunkt als punktrestraint gesetzt. \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:constraintsSixDoF}
+\end{table}
+
+
+\begin{table}
+	\centering
+	\caption{Restraints}
+	\small
+	\begin{tabularx}{10cm}{m{3cm} X}
+		\toprule
+		Name & Beschreibung\\
+		\midrule
+		linearAxialAngularSpring & \\
+		linearDamper & \\
+		linearSpring & \\
+		sphericalAngularDamper & \\
+		sphericalAngularSpring & \\ 
+		tabulatedAxialAngularSpring & \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:restraintsSixDoF}
+\end{table}

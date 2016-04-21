@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.17)  19 JUN 2015 17:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.17)  27 JAN 2016 17:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1170,38 +1170,46 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 \Gin@req@height=\dimen159
 \Gin@req@width=\dimen160
 )
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen161
+\WF@size=\dimen162
+\c@WF@wrappedlines=\count161
+\WF@box=\box52
+\WF@everypar=\toks28
+Package: wrapfig 2003/01/31  v 3.6
+)
 (/usr/share/texlive/texmf-dist/tex/latex/mdwtools/mdwlist.sty
 Package: mdwlist 1996/05/02 1.1 Various list-related things
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen161
-\lightrulewidth=\dimen162
-\cmidrulewidth=\dimen163
-\belowrulesep=\dimen164
-\belowbottomsep=\dimen165
-\aboverulesep=\dimen166
-\abovetopsep=\dimen167
-\cmidrulesep=\dimen168
-\cmidrulekern=\dimen169
-\defaultaddspace=\dimen170
-\@cmidla=\count161
-\@cmidlb=\count162
-\@aboverulesep=\dimen171
-\@belowrulesep=\dimen172
-\@thisruleclass=\count163
-\@lastruleclass=\count164
-\@thisrulewidth=\dimen173
+\heavyrulewidth=\dimen163
+\lightrulewidth=\dimen164
+\cmidrulewidth=\dimen165
+\belowrulesep=\dimen166
+\belowbottomsep=\dimen167
+\aboverulesep=\dimen168
+\abovetopsep=\dimen169
+\cmidrulesep=\dimen170
+\cmidrulekern=\dimen171
+\defaultaddspace=\dimen172
+\@cmidla=\count162
+\@cmidlb=\count163
+\@aboverulesep=\dimen173
+\@belowrulesep=\dimen174
+\@thisruleclass=\count164
+\@lastruleclass=\count165
+\@thisrulewidth=\dimen175
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
-\TX@col@width=\dimen174
-\TX@old@table=\dimen175
-\TX@old@col=\dimen176
-\TX@target=\dimen177
-\TX@delta=\dimen178
-\TX@cols=\count165
-\TX@ftn=\toks28
+\TX@col@width=\dimen176
+\TX@old@table=\dimen177
+\TX@old@col=\dimen178
+\TX@target=\dimen179
+\TX@delta=\dimen180
+\TX@cols=\count166
+\TX@ftn=\toks29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
@@ -1209,25 +1217,25 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \LTright=\skip67
 \LTpre=\skip68
 \LTpost=\skip69
-\LTchunksize=\count166
-\LTcapwidth=\dimen179
-\LT@head=\box52
-\LT@firsthead=\box53
-\LT@foot=\box54
-\LT@lastfoot=\box55
-\LT@cols=\count167
-\LT@rows=\count168
-\c@LT@tables=\count169
-\c@LT@chunks=\count170
-\LT@p@ftn=\toks29
+\LTchunksize=\count167
+\LTcapwidth=\dimen181
+\LT@head=\box53
+\LT@firsthead=\box54
+\LT@foot=\box55
+\LT@lastfoot=\box56
+\LT@cols=\count168
+\LT@rows=\count169
+\c@LT@tables=\count170
+\c@LT@chunks=\count171
+\LT@p@ftn=\toks30
 )
-Class scrreprt Info: longtable captions redefined on input line 106.
+Class scrreprt Info: longtable captions redefined on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
-\FN@temptoken=\toks30
-\footnotemargin=\dimen180
-\c@pp@next@reset=\count171
+\FN@temptoken=\toks31
+\footnotemargin=\dimen182
+\c@pp@next@reset=\count172
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
 Package footmisc Info: Declaring symbol style wiley on input line 872.
@@ -1264,7 +1272,7 @@ Package etexcmds Info: Could not find \expanded.
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count172
+\lrq@indent=\count173
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -1273,45 +1281,45 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count173
-\c@listtotal=\count174
-\c@listcount=\count175
-\c@liststart=\count176
-\c@liststop=\count177
-\c@citecount=\count178
-\c@citetotal=\count179
-\c@multicitecount=\count180
-\c@multicitetotal=\count181
-\c@instcount=\count182
-\c@maxnames=\count183
-\c@minnames=\count184
-\c@maxitems=\count185
-\c@minitems=\count186
-\c@citecounter=\count187
-\c@savedcitecounter=\count188
-\c@uniquelist=\count189
-\c@uniquename=\count190
-\c@refsection=\count191
-\c@refsegment=\count192
-\c@maxextratitle=\count193
-\c@maxextratitleyear=\count194
-\c@maxextrayear=\count195
-\c@maxextraalpha=\count196
-\c@abbrvpenalty=\count197
-\c@highnamepenalty=\count198
-\c@lownamepenalty=\count199
-\c@maxparens=\count200
-\c@parenlevel=\count201
+\c@tabx@nest=\count174
+\c@listtotal=\count175
+\c@listcount=\count176
+\c@liststart=\count177
+\c@liststop=\count178
+\c@citecount=\count179
+\c@citetotal=\count180
+\c@multicitecount=\count181
+\c@multicitetotal=\count182
+\c@instcount=\count183
+\c@maxnames=\count184
+\c@minnames=\count185
+\c@maxitems=\count186
+\c@minitems=\count187
+\c@citecounter=\count188
+\c@savedcitecounter=\count189
+\c@uniquelist=\count190
+\c@uniquename=\count191
+\c@refsection=\count192
+\c@refsegment=\count193
+\c@maxextratitle=\count194
+\c@maxextratitleyear=\count195
+\c@maxextrayear=\count196
+\c@maxextraalpha=\count197
+\c@abbrvpenalty=\count198
+\c@highnamepenalty=\count199
+\c@lownamepenalty=\count200
+\c@maxparens=\count201
 Normal \count register pool exhausted, switching to extended pool.
-\blx@tempcnta=\count277
-\blx@tempcntb=\count278
-\blx@tempcntc=\count279
-\blx@maxsection=\count280
-\blx@maxsegment@0=\count281
-\blx@notetype=\count282
-\blx@parenlevel@text=\count283
-\blx@parenlevel@foot=\count284
-\blx@sectionciteorder@0=\count285
+\c@parenlevel=\count277
+\blx@tempcnta=\count278
+\blx@tempcntb=\count279
+\blx@tempcntc=\count280
+\blx@maxsection=\count281
+\blx@maxsegment@0=\count282
+\blx@notetype=\count283
+\blx@parenlevel@text=\count284
+\blx@parenlevel@foot=\count285
+\blx@sectionciteorder@0=\count286
 \labelnumberwidth=\skip70
 \labelalphawidth=\skip71
 \shorthandwidth=\skip72
@@ -1323,9 +1331,9 @@ Normal \count register pool exhausted, switching to extended pool.
 \bibhang=\skip78
 \blx@bcfin=\read2
 \blx@bcfout=\write3
-\c@mincomprange=\count286
-\c@maxcomprange=\count287
-\c@mincompwidth=\count288
+\c@mincomprange=\count287
+\c@maxcomprange=\count288
+\c@mincompwidth=\count289
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -1334,72 +1342,72 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count289
-\c@savedafterword=\count290
-\c@annotator=\count291
-\c@savedannotator=\count292
-\c@author=\count293
-\c@savedauthor=\count294
-\c@bookauthor=\count295
-\c@savedbookauthor=\count296
-\c@commentator=\count297
-\c@savedcommentator=\count298
-\c@editor=\count299
-\c@savededitor=\count300
-\c@editora=\count301
-\c@savededitora=\count302
-\c@editorb=\count303
-\c@savededitorb=\count304
-\c@editorc=\count305
-\c@savededitorc=\count306
-\c@foreword=\count307
-\c@savedforeword=\count308
-\c@holder=\count309
-\c@savedholder=\count310
-\c@introduction=\count311
-\c@savedintroduction=\count312
-\c@namea=\count313
-\c@savednamea=\count314
-\c@nameb=\count315
-\c@savednameb=\count316
-\c@namec=\count317
-\c@savednamec=\count318
-\c@shortauthor=\count319
-\c@savedshortauthor=\count320
-\c@shorteditor=\count321
-\c@savedshorteditor=\count322
-\c@translator=\count323
-\c@savedtranslator=\count324
-\c@labelname=\count325
-\c@savedlabelname=\count326
-\c@institution=\count327
-\c@savedinstitution=\count328
-\c@lista=\count329
-\c@savedlista=\count330
-\c@listb=\count331
-\c@savedlistb=\count332
-\c@listc=\count333
-\c@savedlistc=\count334
-\c@listd=\count335
-\c@savedlistd=\count336
-\c@liste=\count337
-\c@savedliste=\count338
-\c@listf=\count339
-\c@savedlistf=\count340
-\c@location=\count341
-\c@savedlocation=\count342
-\c@organization=\count343
-\c@savedorganization=\count344
-\c@origlocation=\count345
-\c@savedoriglocation=\count346
-\c@origpublisher=\count347
-\c@savedorigpublisher=\count348
-\c@publisher=\count349
-\c@savedpublisher=\count350
-\c@language=\count351
-\c@savedlanguage=\count352
-\c@pageref=\count353
-\c@savedpageref=\count354
+\c@afterword=\count290
+\c@savedafterword=\count291
+\c@annotator=\count292
+\c@savedannotator=\count293
+\c@author=\count294
+\c@savedauthor=\count295
+\c@bookauthor=\count296
+\c@savedbookauthor=\count297
+\c@commentator=\count298
+\c@savedcommentator=\count299
+\c@editor=\count300
+\c@savededitor=\count301
+\c@editora=\count302
+\c@savededitora=\count303
+\c@editorb=\count304
+\c@savededitorb=\count305
+\c@editorc=\count306
+\c@savededitorc=\count307
+\c@foreword=\count308
+\c@savedforeword=\count309
+\c@holder=\count310
+\c@savedholder=\count311
+\c@introduction=\count312
+\c@savedintroduction=\count313
+\c@namea=\count314
+\c@savednamea=\count315
+\c@nameb=\count316
+\c@savednameb=\count317
+\c@namec=\count318
+\c@savednamec=\count319
+\c@shortauthor=\count320
+\c@savedshortauthor=\count321
+\c@shorteditor=\count322
+\c@savedshorteditor=\count323
+\c@translator=\count324
+\c@savedtranslator=\count325
+\c@labelname=\count326
+\c@savedlabelname=\count327
+\c@institution=\count328
+\c@savedinstitution=\count329
+\c@lista=\count330
+\c@savedlista=\count331
+\c@listb=\count332
+\c@savedlistb=\count333
+\c@listc=\count334
+\c@savedlistc=\count335
+\c@listd=\count336
+\c@savedlistd=\count337
+\c@liste=\count338
+\c@savedliste=\count339
+\c@listf=\count340
+\c@savedlistf=\count341
+\c@location=\count342
+\c@savedlocation=\count343
+\c@organization=\count344
+\c@savedorganization=\count345
+\c@origlocation=\count346
+\c@savedoriglocation=\count347
+\c@origpublisher=\count348
+\c@savedorigpublisher=\count349
+\c@publisher=\count350
+\c@savedpublisher=\count351
+\c@language=\count352
+\c@savedlanguage=\count353
+\c@pageref=\count354
+\c@savedpageref=\count355
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -1411,13 +1419,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 
-\c@textcitecount=\count355
-\c@textcitetotal=\count356
-\c@textcitemaxnames=\count357
-\c@biburlnumpenalty=\count358
-\c@biburlucpenalty=\count359
-\c@biburllcpenalty=\count360
-\c@smartand=\count361
+\c@textcitecount=\count356
+\c@textcitetotal=\count357
+\c@textcitemaxnames=\count358
+\c@biburlnumpenalty=\count359
+\c@biburlucpenalty=\count360
+\c@biburllcpenalty=\count361
+\c@smartand=\count362
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -1429,8 +1437,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2013/11/25 v2.8a biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count362
-\c@bbx:relatedtotal=\count363
+\c@bbx:relatedcount=\count363
+\c@bbx:relatedtotal=\count364
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -1456,24 +1464,24 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 File: biblatex.cfg 
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count364
-\lst@gtempboxa=\box56
-\lst@token=\toks31
-\lst@length=\count365
-\lst@currlwidth=\dimen181
-\lst@column=\count366
-\lst@pos=\count367
-\lst@lostspace=\dimen182
-\lst@width=\dimen183
-\lst@newlines=\count368
-\lst@lineno=\count369
-\lst@maxwidth=\dimen184
+\lst@mode=\count365
+\lst@gtempboxa=\box57
+\lst@token=\toks32
+\lst@length=\count366
+\lst@currlwidth=\dimen183
+\lst@column=\count367
+\lst@pos=\count368
+\lst@lostspace=\dimen184
+\lst@width=\dimen185
+\lst@newlines=\count369
+\lst@lineno=\count370
+\lst@maxwidth=\dimen186
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-\c@lstnumber=\count370
-\lst@skipnumbers=\count371
-\lst@framebox=\box57
+\c@lstnumber=\count371
+\lst@skipnumbers=\count372
+\lst@framebox=\box58
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2013/08/26 1.5b listings configuration
@@ -1492,24 +1500,24 @@ Package scrhack Info: redefining \lstlistoflistings on input line 137.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
-\c@blindtext=\count372
-\c@Blindtext=\count373
-\c@blind@countparstart=\count374
-\blind@countxx=\count375
-\blindtext@numBlindtext=\count376
-\blind@countyy=\count377
-\c@blindlist=\count378
-\c@blindlistlevel=\count379
-\c@blindlist@level=\count380
-\blind@listitem=\count381
-\c@blind@listcount=\count382
-\c@blind@levelcount=\count383
-\blind@mathformula=\count384
-\blind@Mathformula=\count385
-\c@blind@randomcount=\count386
-\c@blind@randommax=\count387
-\c@blind@pangramcount=\count388
-\c@blind@pangrammax=\count389
+\c@blindtext=\count373
+\c@Blindtext=\count374
+\c@blind@countparstart=\count375
+\blind@countxx=\count376
+\blindtext@numBlindtext=\count377
+\blind@countyy=\count378
+\c@blindlist=\count379
+\c@blindlistlevel=\count380
+\c@blindlist@level=\count381
+\blind@listitem=\count382
+\c@blind@listcount=\count383
+\c@blind@levelcount=\count384
+\blind@mathformula=\count385
+\blind@Mathformula=\count386
+\c@blind@randomcount=\count387
+\c@blind@randommax=\count388
+\c@blind@pangramcount=\count389
+\c@blind@pangrammax=\count390
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
@@ -1558,16 +1566,16 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen185
-\Hy@linkcounter=\count390
-\Hy@pagecounter=\count391
+\@linkdim=\dimen187
+\Hy@linkcounter=\count391
+\Hy@pagecounter=\count392
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count392
+\Hy@SavedSpaceFactor=\count393
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1583,12 +1591,12 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count393
+\c@Hy@tempcnt=\count394
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen186
-\Fld@menulength=\count394
-\Field@Width=\dimen187
-\Fld@charsize=\dimen188
+\XeTeXLinkMargin=\dimen188
+\Fld@menulength=\count395
+\Field@Width=\dimen189
+\Fld@charsize=\dimen190
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1598,21 +1606,21 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count395
-\c@Item=\count396
-\c@Hfootnote=\count397
+\Hy@abspage=\count396
+\c@Item=\count397
+\c@Hfootnote=\count398
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 207.
+(scrhack)             need that hack, on input line 208.
 
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count398
-\c@bookmark@seq@number=\count399
+\Fld@listcount=\count399
+\c@bookmark@seq@number=\count400
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -1635,10 +1643,10 @@ Package: todonotes 2012/07/25
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks32
+\pgfutil@everybye=\toks33
 )
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box58
+\pgfutil@abb=\box59
 
 (/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
@@ -1654,26 +1662,26 @@ Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
 Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks33
-\pgfkeys@temptoks=\toks34
+\pgfkeys@pathtoks=\toks34
+\pgfkeys@temptoks=\toks35
 
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks35
+\pgfkeys@tmptoks=\toks36
 ))
-\pgf@x=\dimen189
-\pgf@y=\dimen190
-\pgf@xa=\dimen191
-\pgf@ya=\dimen192
-\pgf@xb=\dimen193
-\pgf@yb=\dimen194
-\pgf@xc=\dimen195
-\pgf@yc=\dimen196
+\pgf@x=\dimen191
+\pgf@y=\dimen192
+\pgf@xa=\dimen193
+\pgf@ya=\dimen194
+\pgf@xb=\dimen195
+\pgf@yb=\dimen196
+\pgf@xc=\dimen197
+\pgf@yc=\dimen198
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count400
-\c@pgf@countb=\count401
-\c@pgf@countc=\count402
-\c@pgf@countd=\count403
+\c@pgf@counta=\count401
+\c@pgf@countb=\count402
+\c@pgf@countc=\count403
+\c@pgf@countd=\count404
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -1688,8 +1696,8 @@ File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
 )))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count404
-\pgfsyssoftpath@bigbuffer@items=\count405
+\pgfsyssoftpath@smallbuffer@items=\count405
+\pgfsyssoftpath@bigbuffer@items=\count406
 )
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -1701,12 +1709,12 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen197
-\pgfmath@count=\count406
-\pgfmath@box=\box59
-\pgfmath@toks=\toks36
-\pgfmath@stack@operand=\toks37
-\pgfmath@stack@operation=\toks38
+\pgfmath@dimen=\dimen199
+\pgfmath@count=\count407
+\pgfmath@box=\box60
+\pgfmath@toks=\toks37
+\pgfmath@stack@operand=\toks38
+\pgfmath@stack@operation=\toks39
 )
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
@@ -1717,52 +1725,52 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count407
+\c@pgfmathroundto@lastzeros=\count408
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
-\pgf@picminx=\dimen198
-\pgf@picmaxx=\dimen199
-\pgf@picminy=\dimen200
-\pgf@picmaxy=\dimen201
+\pgf@picminx=\dimen200
+\pgf@picmaxx=\dimen201
 Normal \dimen register pool exhausted, switching to extended pool.
-\pgf@pathminx=\dimen256
-\pgf@pathmaxx=\dimen257
-\pgf@pathminy=\dimen258
-\pgf@pathmaxy=\dimen259
-\pgf@xx=\dimen260
-\pgf@xy=\dimen261
-\pgf@yx=\dimen262
-\pgf@yy=\dimen263
-\pgf@zx=\dimen264
-\pgf@zy=\dimen265
+\pgf@picminy=\dimen256
+\pgf@picmaxy=\dimen257
+\pgf@pathminx=\dimen258
+\pgf@pathmaxx=\dimen259
+\pgf@pathminy=\dimen260
+\pgf@pathmaxy=\dimen261
+\pgf@xx=\dimen262
+\pgf@xy=\dimen263
+\pgf@yx=\dimen264
+\pgf@yy=\dimen265
+\pgf@zx=\dimen266
+\pgf@zy=\dimen267
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
-\pgf@path@lastx=\dimen266
-\pgf@path@lasty=\dimen267
+\pgf@path@lastx=\dimen268
+\pgf@path@lasty=\dimen269
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
-\pgf@shorten@end@additional=\dimen268
-\pgf@shorten@start@additional=\dimen269
+\pgf@shorten@end@additional=\dimen270
+\pgf@shorten@start@additional=\dimen271
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
-\pgfpic=\box60
-\pgf@hbox=\box61
-\pgf@layerbox@main=\box62
-\pgf@picture@serial@count=\count408
+\pgfpic=\box61
+\pgf@hbox=\box62
+\pgf@layerbox@main=\box63
+\pgf@picture@serial@count=\count409
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
-\pgflinewidth=\dimen270
+\pgflinewidth=\dimen272
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
-\pgf@pt@x=\dimen271
-\pgf@pt@y=\dimen272
-\pgf@pt@temp=\dimen273
+\pgf@pt@x=\dimen273
+\pgf@pt@y=\dimen274
+\pgf@pt@temp=\dimen275
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -1778,15 +1786,15 @@ File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
-\pgf@max=\dimen274
-\pgf@sys@shading@range@num=\count409
+\pgf@max=\dimen276
+\pgf@sys@shading@range@num=\count410
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
 
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
-\pgfexternal@startupbox=\box63
+\pgfexternal@startupbox=\box64
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
@@ -1799,15 +1807,15 @@ File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
 )))
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
-\pgfnodeparttextbox=\box64
+\pgfnodeparttextbox=\box65
 )
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen275
-\pgf@nodesepend=\dimen276
+\pgf@nodesepstart=\dimen277
+\pgf@nodesepend=\dimen278
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
@@ -1817,39 +1825,39 @@ Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
 (/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
-\pgffor@iter=\dimen277
-\pgffor@skip=\dimen278
-\pgffor@stack=\toks39
-\pgffor@toks=\toks40
+\pgffor@iter=\dimen279
+\pgffor@skip=\dimen280
+\pgffor@stack=\toks40
+\pgffor@toks=\toks41
 ))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count410
-\pgfplotmarksize=\dimen279
+\pgf@plot@mark@count=\count411
+\pgfplotmarksize=\dimen281
 )
-\tikz@lastx=\dimen280
-\tikz@lasty=\dimen281
-\tikz@lastxsaved=\dimen282
-\tikz@lastysaved=\dimen283
-\tikzleveldistance=\dimen284
-\tikzsiblingdistance=\dimen285
-\tikz@figbox=\box65
-\tikz@tempbox=\box66
-\tikztreelevel=\count411
-\tikznumberofchildren=\count412
-\tikznumberofcurrentchild=\count413
-\tikz@fig@count=\count414
+\tikz@lastx=\dimen282
+\tikz@lasty=\dimen283
+\tikz@lastxsaved=\dimen284
+\tikz@lastysaved=\dimen285
+\tikzleveldistance=\dimen286
+\tikzsiblingdistance=\dimen287
+\tikz@figbox=\box66
+\tikz@tempbox=\box67
+\tikztreelevel=\count412
+\tikznumberofchildren=\count413
+\tikznumberofcurrentchild=\count414
+\tikz@fig@count=\count415
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count415
-\pgfmatrixcurrentcolumn=\count416
-\pgf@matrix@numberofcolumns=\count417
+\pgfmatrixcurrentrow=\count416
+\pgfmatrixcurrentcolumn=\count417
+\pgf@matrix@numberofcolumns=\count418
 )
-\tikz@expandcount=\count418
+\tikz@expandcount=\count419
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
@@ -1860,18 +1868,18 @@ ioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v2.10 (rcs-revision 1.7)
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count419
-\calc@Bcount=\count420
-\calc@Adimen=\dimen286
-\calc@Bdimen=\dimen287
+\calc@Acount=\count420
+\calc@Bcount=\count421
+\calc@Adimen=\dimen288
+\calc@Bdimen=\dimen289
 \calc@Askip=\skip80
 \calc@Bskip=\skip81
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count421
+\calc@Ccount=\count422
 \calc@Cskip=\skip82
 )
-\c@@todonotes@numberoftodonotes=\count422
+\c@@todonotes@numberoftodonotes=\count423
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1949,17 +1957,17 @@ File: mt-bch.cfg 2007/03/03 v1.5 microtype config. file: Bitstream Charter (RS)
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count423
-\scratchdimen=\dimen288
-\scratchbox=\box67
-\nofMPsegments=\count424
-\nofMParguments=\count425
-\everyMPshowfont=\toks41
-\MPscratchCnt=\count426
-\MPscratchDim=\dimen289
-\MPnumerator=\count427
-\makeMPintoPDFobject=\count428
-\everyMPtoPDFconversion=\toks42
+\scratchcounter=\count424
+\scratchdimen=\dimen290
+\scratchbox=\box68
+\nofMPsegments=\count425
+\nofMParguments=\count426
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count427
+\MPscratchDim=\dimen291
+\MPnumerator=\count428
+\makeMPintoPDFobject=\count429
+\everyMPtoPDFconversion=\toks43
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1981,23 +1989,22 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `foam-fancy.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'foam-fancy.bbl' found.
+Package biblatex Info: ... file 'foam-fancy.bbl' not found.
 
-(./foam-fancy.bbl)
+No file foam-fancy.bbl.
 Package biblatex Info: Reference section=0 on input line 26.
 Package biblatex Info: Reference segment=0 on input line 26.
-\c@lstlisting=\count429
+\c@lstlisting=\count430
 Package scrhack Info: undefining \float@addtolists on input line 26.
-\AtBeginShipoutBox=\box68
+\AtBeginShipoutBox=\box69
 Package hyperref Info: Link coloring OFF on input line 26.
-
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count430
+\c@section@level=\count431
 )
 LaTeX Info: Redefining \ref on input line 26.
 LaTeX Info: Redefining \pageref on input line 26.
@@ -2008,7 +2015,7 @@ LaTeX Info: Redefining \nameref on input line 26.
 \openout5 = `foam-fancy.out'.
 
  ABD: EveryShipout initializing macros
-\c__siunitx_mathsf_int=\count431
+\c__siunitx_mathsf_int=\count432
 LaTeX Font Info:    Try loading font information for OT1+mdbch on input line 26
 .
 
@@ -2107,7 +2114,7 @@ LaTeX Font Info:    Font shape `T1/cmss/m/n' will be
 (Font)              scaled to size 8.31201pt on input line 26.
 LaTeX Font Info:    Font shape `T1/cmss/m/n' will be
 (Font)              scaled to size 6.23401pt on input line 26.
-\c__siunitx_mathtt_int=\count432
+\c__siunitx_mathtt_int=\count433
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
 (Font)              scaled to size 11.73846pt on input line 26.
 Package microtype Info: Loading generic settings for font family
@@ -2200,12 +2207,64 @@ LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 Package tocbasic Info: character protrusion at toc deactivated on input line 42
 .
  (./foam-fancy.toc
+LaTeX Font Info:    Try loading font information for TS1+mdbch on input line 7.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/ts1mdbch.fd
+File: ts1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for TS1/mdbch.
+)
+LaTeX Font Info:    Font shape `TS1/mdbch/b/n' will be
+(Font)              scaled to size 10.51207pt on input line 7.
+Package microtype Info: Character `texttwelveudash ' is missing
+(microtype)             in font `TS1/mdbch/b/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textthreequartersemdash ' is missing
+(microtype)             in font `TS1/mdbch/b/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textasteriskcentered ' is missing
+(microtype)             in font `TS1/mdbch/b/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textlbrackdbl ' is missing
+(microtype)             in font `TS1/mdbch/b/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textrbrackdbl ' is missing
+(microtype)             in font `TS1/mdbch/b/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `texttildelow ' is missing
+(microtype)             in font `TS1/mdbch/b/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textcelsius ' is missing
+(microtype)             in font `TS1/mdbch/b/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 9.24173pt on input line 14.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `fvm' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `TS1/mdbch/m/n' will be
+(Font)              scaled to size 10.51207pt on input line 20.
+Package microtype Info: Character `texttwelveudash ' is missing
+(microtype)             in font `TS1/mdbch/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textthreequartersemdash ' is missing
+(microtype)             in font `TS1/mdbch/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textasteriskcentered ' is missing
+(microtype)             in font `TS1/mdbch/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textlbrackdbl ' is missing
+(microtype)             in font `TS1/mdbch/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textrbrackdbl ' is missing
+(microtype)             in font `TS1/mdbch/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `texttildelow ' is missing
+(microtype)             in font `TS1/mdbch/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textcelsius ' is missing
+(microtype)             in font `TS1/mdbch/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
 (Font)              scaled to size 10.51207pt on input line 35.
 LaTeX Font Info:    Font shape `T1/mdbch/m/sl' will be
@@ -2222,10 +2281,12 @@ Package babel Info: Redefining ngerman shorthand "~
 
 
 ]
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 10.51207pt on input line 46.
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
-(Font)              scaled to size 9.24173pt on input line 49.
+(Font)              scaled to size 9.24173pt on input line 53.
 LaTeX Font Info:    Font shape `T1/mdbch/b/it' will be
-(Font)              scaled to size 10.51207pt on input line 52.
+(Font)              scaled to size 10.51207pt on input line 56.
 )
 \tf@toc=\write6
 \openout6 = `foam-fancy.toc'.
@@ -2238,7 +2299,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 44.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 44.
- [2]
+
+[2]
 Package tocbasic Info: character protrusion at lof deactivated on input line 44
 .
  (./foam-fancy.lof)
@@ -2258,10 +2320,7 @@ Package babel Info: Redefining ngerman shorthand "~
 ]
 Package tocbasic Info: character protrusion at lot deactivated on input line 46
 .
- (./foam-fancy.lot
-LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 10.51207pt on input line 29.
-)
+ (./foam-fancy.lot)
 \tf@lot=\write8
 \openout8 = `foam-fancy.lot'.
 
@@ -2459,34 +2518,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-LaTeX Font Info:    Try loading font information for TS1+mdbch on input line 4.
-
-(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/ts1mdbch.fd
-File: ts1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for TS1/mdbch.
-)
-LaTeX Font Info:    Font shape `TS1/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 4.
-Package microtype Info: Character `texttwelveudash ' is missing
-(microtype)             in font `TS1/mdbch/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textthreequartersemdash ' is missing
-(microtype)             in font `TS1/mdbch/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textasteriskcentered ' is missing
-(microtype)             in font `TS1/mdbch/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textlbrackdbl ' is missing
-(microtype)             in font `TS1/mdbch/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textrbrackdbl ' is missing
-(microtype)             in font `TS1/mdbch/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `texttildelow ' is missing
-(microtype)             in font `TS1/mdbch/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textcelsius ' is missing
-(microtype)             in font `TS1/mdbch/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 29.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2495,10 +2526,9 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 29.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 29.
- [3
+[3
 
-])
-(./Kapitel/Turbulenz.tex
+]) (./Kapitel/Turbulenz.tex
 Kapitel 3.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -2558,7 +2588,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 11.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 11.
-<Abbildungen/Struktur.jpg, id=397, 1156.32pt x 867.24pt>
+<Abbildungen/Struktur.jpg, id=429, 1156.32pt x 867.24pt>
 File: Abbildungen/Struktur.jpg Graphic file (type jpg)
 
 <use Abbildungen/Struktur.jpg>
@@ -2641,7 +2671,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 3.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 3.
-<Abbildungen/blockmesh.png, id=419, 1486.55376pt x 839.135pt>
+<Abbildungen/blockmesh.png, id=451, 1486.55376pt x 839.135pt>
 File: Abbildungen/blockmesh.png Graphic file (type png)
 
 <use Abbildungen/blockmesh.png>
@@ -2674,7 +2704,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 27.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 27.
- <Abbildungen/snappy_geometry2.png, id=435, 228.68292pt x 137.313pt>
+ <Abbildungen/snappy_geometry2.png, id=467, 228.68292pt x 137.313pt>
 File: Abbildungen/snappy_geometry2.png Graphic file (type png)
 
 <use Abbildungen/snappy_geometry2.png>
@@ -2726,7 +2756,7 @@ Package babel Info: Redefining ngerman shorthand "~
 [12]
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
 (Font)              scaled to size 5.06396pt on input line 144.
- <Abbildungen/snappy_refinement.png, id=469, 228.68292pt x 137.313pt>
+ <Abbildungen/snappy_refinement.png, id=501, 228.68292pt x 137.313pt>
 File: Abbildungen/snappy_refinement.png Graphic file (type png)
 
 <use Abbildungen/snappy_refinement.png>
@@ -2734,7 +2764,7 @@ Package pdftex.def Info: Abbildungen/snappy_refinement.png used on input line 1
 51.
 (pdftex.def)             Requested size: 289.69957pt x 173.9686pt.
 
-<Abbildungen/snappy_castellated.png, id=471, 228.68292pt x 137.313pt>
+<Abbildungen/snappy_castellated.png, id=503, 228.68292pt x 137.313pt>
 File: Abbildungen/snappy_castellated.png Graphic file (type png)
 
 <use Abbildungen/snappy_castellated.png>
@@ -2760,7 +2790,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 169.
  [14 <./Abbildungen/snappy_refinement.png> <./Abbildungen/snappy_castellated.pn
 g>]
-<Abbildungen/snappy_smoothing.png, id=538, 228.68292pt x 137.313pt>
+<Abbildungen/snappy_smoothing.png, id=570, 228.68292pt x 137.313pt>
 File: Abbildungen/snappy_smoothing.png Graphic file (type png)
 
 <use Abbildungen/snappy_smoothing.png>
@@ -2776,7 +2806,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 214.
  [15 <./Abbildungen/snappy_smoothing.png>] <Abbildungen/snappy_addlayers.png, i
-d=575, 228.68292pt x 137.313pt>
+d=607, 228.68292pt x 137.313pt>
 File: Abbildungen/snappy_addlayers.png Graphic file (type png)
 
 <use Abbildungen/snappy_addlayers.png>
@@ -3040,34 +3070,1262 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
+
+! Package inputenc Error: Unicode char \u8:ält not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 OpenFOAM bietet vielfält
+                            ige Möglichkeiten Bewegungen in den Simulationen...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 OpenFOAM bietet vielfältige Mö
+                                  glichkeiten Bewegungen in den Simulationen...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ärt not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 ...gsten Methoden kurz vorgestellt und erklärt
+                                                   werden.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:äch not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 Zunäch
+          st muss unterschieden werden, ob es sich bei der zu simulierenden ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...n, ob es sich bei der zu simulierenden Strö
+                                                  mung um eine quasistationä...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:äre not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...ulierenden Strömung um eine quasistationäre
+                                                   Strömung handelt, oder um...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...enden Strömung um eine quasistationäre Strö
+                                                  mung handelt, oder um eine...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:äre not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...ung handelt, oder um eine echt instationäre
+                                                  .
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:äch not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 Zunäch
+          st gilt es den Typ von bewegtem Gitter festzulegen. Dies geschieht...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...wegtem Gitter festzulegen. Dies geschieht ü
+                                                  ber die Datei \textit{cont...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 Verfü
+         gbare Gittertypen sind:
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+Overfull \hbox (10.05043pt too wide) in paragraph at lines 12--12
+[][]\T1/mdbch/m/n/10 (-20) Dynamische
+ []
+
+
+Overfull \hbox (6.58151pt too wide) in paragraph at lines 12--12
+\T1/mdbch/m/n/10 (-20) Gittertypen| 
+ []
+
+
+Overfull \hbox (18.21971pt too wide) in paragraph at lines 27--27
+[]|\T1/mdbch/m/n/10 (-20) dynamicInkJetFvMesh| 
+ []
+
+
+Overfull \hbox (48.25023pt too wide) in paragraph at lines 27--27
+[]|\T1/mdbch/m/n/10 (-20) dynamicMotionSolverFvMesh| 
+ []
+
+
+Overfull \hbox (18.73006pt too wide) in paragraph at lines 27--27
+[]|\T1/mdbch/m/n/10 (-20) dynamicRefineFvMesh| 
+ []
+
+
+Overfull \hbox (29.71657pt too wide) in paragraph at lines 27--27
+[]|\T1/mdbch/m/n/10 (-20) movingConeTopoFvMesh| 
+ []
+
+
+Overfull \hbox (50.9315pt too wide) in paragraph at lines 27--27
+[]|\T1/mdbch/m/n/10 (-20) multiSolidBodyMotionFvMesh| 
+ []
+
+
+Overfull \hbox (28.30534pt too wide) in paragraph at lines 27--27
+[]|\T1/mdbch/m/n/10 (-20) rawTopoChangerFvMesh| 
+ []
+
+
+Overfull \hbox (27.75006pt too wide) in paragraph at lines 27--27
+[]|\T1/mdbch/m/n/10 (-20) solidBodyMotionFvMesh| 
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 7.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 7.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 24.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 24.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 30.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 30.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 30.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 30.
+(babel)             in language  on input line 31.
 [25
 
 ]
+
+Package wrapfig Warning: Stationary wraptable forced to float on input line 34.
+
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 34.
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 Fü
+       r den Fall einer Quasistationären Bewegung, bspw. die Rotation einer ...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:äre not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 Für den Fall einer Quasistationäre
+                                       n Bewegung, bspw. die Rotation einer ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 ...metrie oder Turbine bietet OpenFOAM die Mö
+                                                  glichkeit mit sog. MRF-Sol...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 ... sog. MRF-Solvern zu rechnen. MRF steht fü
+                                                  r \textit{Multi-Reference-...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ätz not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 ...chung verkompliziert sich durch die zusätz
+                                                  lichen Terme, welche durch...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ße not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 ...ordinatensystem in die Gleichung einfließe
+                                                  n:
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43 ..._rot} zeigt die Navier-Stokes Gleichung fü
+                                                  r ein rotierendes Bezugssy...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 ...s sind, dass keine Bewegungsgleichungen fü
+                                                  r die Gitterpunkte gelöst ...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 ...gungsgleichungen für die Gitterpunkte gelö
+                                                  st werden müssen. Des Weit...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 ...ngen für die Gitterpunkte gelöst werden mü
+                                                  ssen. Des Weiteren ist auc...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:äum not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 ...n müssen. Des Weiteren ist auch keine räum
+                                                  liche Interpolation der si...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 ...äumliche Interpolation der simulierten Grö
+                                                  ßen vom alten Gitter zum n...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ße not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 ...mliche Interpolation der simulierten Größe
+                                                  n vom alten Gitter zum neu...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 ...rößen vom alten Gitter zum neuen Gitter nö
+                                                  tig. Dadurch lassen sich s...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46 ...momentan: OpenFOAM 2.3.x) ist die Unterstü
+                                                  tzung für MRF grundsätzlic...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46 ...: OpenFOAM 2.3.x) ist die Unterstützung fü
+                                                  r MRF grundsätzlich enthal...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ätz not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46 ...x) ist die Unterstützung für MRF grundsätz
+                                                  lich enthalten, unter Ande...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 ...er Code ist aus einem der zu OpenFOAM gehö
+                                                  renden Tutorials entnommen.
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 31.
- [26]) (./Kapitel/Mehrphasen.tex
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 50.
+[26]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 52.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 52.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 \textit{AMI} steht fü
+                          r \textit{Arbitrary Mesh Interface}, was so viel w...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:äne not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 .... Im Grunde genommen wird die Rechendomäne
+                                                   $ \Omega $ in mehrere Ber...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...n dieser Bereich werden die Simulationsgrö
+                                                  ßen interpoliert. Dadurch ...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ße not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...dieser Bereich werden die Simulationsgröße
+                                                  n interpoliert. Dadurch is...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...leitende Bewegung der Gitter zueinander mö
+                                                  glich, welche die Simulati...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ... von Bewegungen mit 6 Freiheitsgraden ermö
+                                                  glicht.
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 \todo{bild eines AMI-Gitters einfügen}
+                                           
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 \todo{bild eines AMI-Gitters einfügen}
+                                           
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 \todo{bild eines AMI-Gitters einfügen}
+                                           
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 \todo{bild eines AMI-Gitters einfügen}
+                                           
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 Um Simulationen mit dieser Technik durchzufü
+                                                 hren sind mehrere Schritte ...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 ...nik durchzuführen sind mehrere Schritte nö
+                                                  tig.
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 59.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 59.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 59.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 59.
+[27
+! Use of \@newline doesn't match its definition.
+\DeclareInputText #1#2->\def \reserved@a ##
+                                           1 ${}\def \reserved@b {#2}\ifcat ...
+l.59 \newpage
+             
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Use of \@newline doesn't match its definition.
+<inserted text> m
+                 acro:->\@gnewline \relax 
+l.59 \newpage
+             
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 61.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 61.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 63.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 63.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 63.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 63.
+ [28]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 66.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 66.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 Diese Bibliothek ermö
+                          glicht CFD-Simulationen mit den höchsten Freiheits...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 ...hek ermöglicht CFD-Simulationen mit den hö
+                                                  chsten Freiheitsgraden. Di...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ähr not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 ...erung zur Laufzeit der Simulationen gewähr
+                                                  leistet.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...bleResize} auf \texttt{yes} gesetzt ist. }
+                                                  
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 75.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 75.
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 Diese Bibliothek ermö
+                          glicht das Glätten eines numerischen Gitters. Dazu...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ätt not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 Diese Bibliothek ermöglicht das Glätt
+                                          en eines numerischen Gitters. Dazu...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:äts not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 ... Gitters. Dazu wird eine skalare Qualitäts
+                                                  größe, welche zu jedem Zei...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 ...tters. Dazu wird eine skalare Qualitätsgrö
+                                                  ße, welche zu jedem Zeitsc...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ße not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 ...ers. Dazu wird eine skalare Qualitätsgröße
+                                                  , welche zu jedem Zeitschr...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 ...itätsgröße, welche zu jedem Zeitschritt fü
+                                                  r jede einzelne Gitterzell...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 ...nutzt. Im Nachfolgenden sind diese aufgefü
+                                                  hrt.
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:äts not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...n{Qualitätsmerkmale für \textit{Mesquite}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...n{Qualitätsmerkmale für \textit{Mesquite}}
+                                                  
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:äts not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...n{Qualitätsmerkmale für \textit{Mesquite}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...n{Qualitätsmerkmale für \textit{Mesquite}}
+                                                  
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+Overfull \hbox (24.0pt too wide) in alignment at lines 97--97
+[][] 
+ []
+
+! Argument of \UTFviii@three@octets has an extra }.
+<inserted text> 
+                \par 
+l.98 	\label{tab:qualität}
+                          
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \UTFviii@three@octets was complete.
+<to be read again> 
+                   \par 
+l.98 	\label{tab:qualität}
+                          
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+
+Package wrapfig Warning: Collision between wrapping environments on input line 
+101.
+
+
+Overfull \hbox (66.29175pt too wide) in paragraph at lines 103--103
+[][]\T1/mdbch/m/n/10 (-20) Optimierungsalgorithmen| 
+ []
+
+
+Overfull \hbox (3.37439pt too wide) in paragraph at lines 119--119
+[]|\T1/mdbch/m/it/10 (-20) NonSmoothDescent| 
+ []
+
+
+Overfull \hbox (1.53043pt too wide) in paragraph at lines 119--119
+[]|\T1/mdbch/m/it/10 (-20) ConjugateGradient| 
+ []
+
+
+Overfull \hbox (45.00908pt too wide) in paragraph at lines 154--154
+[]|\T1/mdbch/m/n/10 (-20) angularOscillatingDisplacement| 
+ []
+
+
+Overfull \hbox (21.40273pt too wide) in paragraph at lines 154--154
+[]|\T1/mdbch/m/n/10 (-20) angularOscillatingVelocity| 
+ []
+
+
+Overfull \hbox (11.79865pt too wide) in paragraph at lines 154--154
+[]|\T1/mdbch/m/n/10 (-20) oscillatingDisplacement| 
+ []
+
+
+Overfull \hbox (0.92046pt too wide) in paragraph at lines 154--154
+[]|\T1/mdbch/m/n/10 (-20) oscillatingFixedValue| 
+ []
+
+
+Overfull \hbox (15.03503pt too wide) in paragraph at lines 154--154
+[]|\T1/mdbch/m/n/10 (-20) surfaceSlipDisplacement| 
+ []
+
+
+Overfull \hbox (42.25696pt too wide) in paragraph at lines 154--154
+[]|\T1/mdbch/m/n/10 (-20) timeVaryingUniformFixedValue| 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 158.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 158.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 158.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 158.
+[29
+
+
+! Incomplete \iffalse; all text was ignored after line 158.
+<inserted text> 
+                \fi 
+l.158 \newpage
+              
+A forbidden control sequence occurred in skipped text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
+
+Runaway text?
+\@writefile{lot}{\contentsline {table}{\numberline {11.2}{\ignorespaces \ETC.
+! Forbidden control sequence found while scanning text of \write.
+<inserted text> 
+                }
+l.158 \newpage
+              
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+Runaway text?
+\@writefile{lot}{\contentsline {table}{\numberline {11.2}{\ignorespaces \ETC.
+! Forbidden control sequence found while scanning text of \write.
+<inserted text> 
+                }
+l.158 \newpage
+              
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+Runaway text?
+\@writefile{lot}{\contentsline {table}{\numberline {11.2}{\ignorespaces \ETC.
+! Forbidden control sequence found while scanning text of \write.
+<inserted text> 
+                }
+l.158 \newpage
+              
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+Runaway text?
+\@writefile{lot}{\contentsline {table}{\numberline {11.2}{\ignorespaces \ETC.
+! Forbidden control sequence found while scanning text of \write.
+<inserted text> 
+                }
+l.158 \newpage
+              
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+Runaway text?
+\@writefile{lot}{\contentsline {table}{\numberline {11.2}{\ignorespaces \ETC.
+! Forbidden control sequence found while scanning text of \write.
+<inserted text> 
+                }
+l.158 \newpage
+              
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 158.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 158.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 158.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 158.
+ [30]
+
+Package wrapfig Warning: Stationary wraptable forced to float on input line 160
+.
+
+LaTeX Font Info:    Font shape `T1/mdbch/b/it' will be
+(Font)              scaled to size 13.82408pt on input line 160.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 160.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 160.
+! Package inputenc Error: Unicode char \u8:ße not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+! Package inputenc Error: Unicode char \u8:ße not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:ße not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\end{tabularx}
+                     
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+Underfull \hbox (badness 7504) in paragraph at lines 178--178
+[]|\T1/mdbch/m/n/10 (+20) Setzt ei-ne trans-la-ti-ve Be-gren-zung mit ei-nem Pu
+nkt. Schls-sel-wort ist
+ []
+
+
+Overfull \hbox (18.6101pt too wide) in paragraph at lines 198--198
+[]|\T1/mdbch/m/n/10 (-20) linearAxialAngularSpring| 
+ []
+
+
+Overfull \hbox (16.625pt too wide) in paragraph at lines 198--198
+[]|\T1/mdbch/m/n/10 (-20) sphericalAngularDamper| 
+ []
+
+
+Overfull \hbox (10.9143pt too wide) in paragraph at lines 198--198
+[]|\T1/mdbch/m/n/10 (-20) sphericalAngularSpring| 
+ []
+
+
+Overfull \hbox (33.8323pt too wide) in paragraph at lines 198--198
+[]|\T1/mdbch/m/n/10 (-20) tabulatedAxialAngularSpring| 
+ []
+
+) (./Kapitel/Mehrphasen.tex
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+ [31]
 Kapitel 12.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -3081,7 +4339,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 3.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 3.
-[27
+[32
 
 ]) (./Kapitel/Waerme.tex
 Kapitel 13.
@@ -3097,7 +4355,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 3.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 3.
-[28
+[33
 
 ]) (./Kapitel/postproc.tex
 Kapitel 14.
@@ -3113,7 +4371,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 11.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 11.
-[29
+[34
 
 ]) (./Kapitel/Paraview.tex
 Kapitel 15.
@@ -3129,7 +4387,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 3.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 3.
-[30
+[35
 
 ]) (./Kapitel/Literatur.tex
 Kapitel 16.
@@ -3145,7 +4403,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 4.
-[31
+[36
 
 ])
 Package babel Info: Redefining ngerman shorthand "|
@@ -3348,25 +4606,83 @@ Package babel Info: Redefining ngerman shorthand "~
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
- (./foam-fancy.aux (./Kapitel/Abkuerzungen.aux) (./Kapitel/Symbole.aux))
+ (./foam-fancy.aux (./Kapitel/Abkuerzungen.aux) (./Kapitel/Symbole.aux)
+Runaway argument?
+{tab:qualit
+! Paragraph ended before \@newl@bel was complete.
+<to be read again> 
+                   \par 
+l.179 \newlabel{tab:qualit\par
+                               }{{11.2}{29}{Qualitätsmerkmale für \textit {M...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! Extra }, or forgotten \endgroup.
+l.179 \newlabel{tab:qualit\par }
+                                {{11.2}{29}{Qualitätsmerkmale für \textit {M...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+! Package inputenc Error: Unicode char \u8:äts not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.179 ...bel{tab:qualit\par }{{11.2}{29}{Qualitäts
+                                                  merkmale für \textit {Mesq...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.179 ...lit\par }{{11.2}{29}{Qualitätsmerkmale fü
+                                                  r \textit {Mesquite}}{tabl...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 109.
-Package rerunfilecheck Info: File `foam-fancy.out' has not changed.
-(rerunfilecheck)             Checksum: DEFD3C8600CEDB2B490F52B81933506B;3212.
+
+
+Package rerunfilecheck Warning: File `foam-fancy.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `foam-fancy.out':
+(rerunfilecheck)             Before: 4FAB09C880767D3871A9C3FED9DDFFE2;3520
+(rerunfilecheck)             After:  07A3D4C647E4FAFE88469E06DC748F5F;3492.
 Package logreq Info: Writing requests to 'foam-fancy.run.xml'.
 \openout1 = `foam-fancy.run.xml'.
 
- ) 
+ )
+(\end occurred when \ifnum on line 158 was incomplete) 
 Here is how much of TeX's memory you used:
- 38602 strings out of 493304
- 711074 string characters out of 6139871
- 1319608 words of memory out of 5000000
- 40097 multiletter control sequences out of 15000+600000
- 150624 words of font info for 437 fonts, out of 8000000 for 9000
+ 38738 strings out of 493304
+ 712741 string characters out of 6139871
+ 1318110 words of memory out of 5000000
+ 40193 multiletter control sequences out of 15000+600000
+ 156126 words of font info for 458 fonts, out of 8000000 for 9000
  962 hyphenation exceptions out of 8191
- 74i,20n,99p,10424b,3205s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
-st, replaced by a fixed one
+ 74i,20n,99p,10424b,3207s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): na
+me{Hfootnote.5} has been referenced but does not exist, replaced by a fixed one
+
 
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
 , replaced by a fixed one
@@ -3390,10 +4706,10 @@ e1/public/mathdesign/mdbch/md-chri7m.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/mathdesign/mdbch/md-chri8t.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/zapfding/uzdr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 wasy/wasy10.pfb>
-Output written on foam-fancy.pdf (54 pages, 340443 bytes).
+Output written on foam-fancy.pdf (59 pages, 348134 bytes).
 PDF statistics:
- 1450 PDF objects out of 1728 (max. 8388607)
- 1349 compressed objects within 14 object streams
- 753 named destinations out of 1000 (max. 500000)
- 81904 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1506 PDF objects out of 1728 (max. 8388607)
+ 1400 compressed objects within 14 object streams
+ 768 named destinations out of 1000 (max. 500000)
+ 83472 words of extra memory for PDF output out of 89155 (max. 10000000)
 
