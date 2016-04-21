@@ -5,11 +5,24 @@
 % Foil geometry
 c = 1;                % Geometric chord length
 s = 2;                % Span (along y-axis)
-alpha = 0.087266;     % Angle of attack (in radians)
+alpha = 0.0;          % Angle of attack (in radians)
 NACA = [0 0 1 5];     % NACA 4-digit designation as a row vector;
 
 % Surface resolution parameters
 Ni = 1000;            % Number of interpolation points along the foil
+
+arg_list = argv ();
+for i = 1:nargin
+  if (length(arg_list{i}) == 4)
+    NACA(1) = str2num( arg_list{i}(1) );
+    NACA(2) = str2num( arg_list{i}(2) );
+    NACA(3) = str2num( arg_list{i}(3) );
+    NACA(4) = str2num( arg_list{i}(4) );
+  endif
+endfor
+
+printf ("NACA profile is %s\n", num2str(NACA));
+
 
 % ------------------------- END OF INPUT PARAMETER REGION -------------------- %
 
