@@ -1,0 +1,10 @@
+### THIS FILE WAS CREATED BY ALJOSCHA SANDER
+### aljoscha.sander@gmail.com
+### all content is strictly under GPL v3 
+
+### TODO for fishUndulationPatchPointField.C
+
+line 183: implement FOAM::PI
+line 193: develop new method to calculate the number of point for deformation. it would probably be a good idea to take curvature into account in order to have a anisotropically distributed number of points over the patch length. 
+
+

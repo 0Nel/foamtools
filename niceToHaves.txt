@@ -1,0 +1,14 @@
+src/mesh:
+	- tool to extract the mesh displacement residuals and plot them
+	- tweak the pyFoamPlotWatcher.py script (extra package) so it extracts the residuals from the latest pimple iteration
+	- generic plot mesh quality tool
+
+doc:
+	- a list (preferably table) of all the applications that are shipped with openFoam
+	- parameters for snappyHexMesh
+
+test:
+	-generic tests scripts that check your openfoam version for broken exes
+
+template:
+	- create a templates folder for 2D and 3D cases

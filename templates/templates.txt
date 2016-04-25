@@ -1,0 +1,2 @@
+templates for initial (everything that essentially goes into the '0' folder) and boundary (everything that goes into 'constant') conditions are to be placed here
+
