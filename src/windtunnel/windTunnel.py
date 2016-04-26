@@ -1,8 +1,9 @@
 #!/usr/bin/python
 
 import sys, getopt, os, numpy, math, glob
-import re
+# import re
 import matplotlib.pyplot as plt
+from scipy import interpolate
 
 plt.rcParams.update({'font.size': 15})
 
@@ -36,6 +37,29 @@ def plot_fig (alpha, Cl, Cl_stdv, Cd, Cd_stdv):
     plt.xlabel("Cd")
     plt.ylabel("Cl")
     plt.savefig("lilienthal.png", dpi=300)
+
+### reference function to convert mV/V to N
+def mVtoDrag(m, off, Cd):
+    Cd = m * Cd + off
+
+def mVtoLift(m, off, Cl):
+    Cd = m * Cl + off
+
+def getReferenceDrag(m, off, file):
+
+    angle = []
+    cd = []
+    cd_std = []
+
+    f_in = open(file, 'r')
+    for line in f_in:
+        tmp = [line.split()]
+        if tmp[0] == '#':
+            next
+        else:
+            angle, cd, cd_std = map(float, tmp))
+
+
 
 #### START OF THE MAIN LOOP
 def main (argv):
