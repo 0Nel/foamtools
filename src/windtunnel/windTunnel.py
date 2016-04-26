@@ -11,18 +11,31 @@ def nextpow2 (i):
     while n < i: n *= 2
     return n
 
-# def plot_fig (alpha, Cl, Cl_stdv, Cd, Cd_stdv):
+def plot_fig (alpha, Cl, Cl_stdv, Cd, Cd_stdv):
 
     ### plot an Lift polar, drag polar and a lilienthalpolar
 
     ## example code for plotting
-    # plt.figure(1)
-    # plt.plot(time, Fpx)
-    # plt.grid()
-    # plt.xlabel("t")
-    # plt.ylabel("Fpx")
-    # plt.savefig("plots/fpx.png", dpi=300)
+    plt.figure(1)
+    plt.plot(alpha, Cl)
+    plt.grid()
+    plt.xlabel("alpha")
+    plt.ylabel("Cl")
+    plt.savefig("Cl.png", dpi=300)
 
+    plt.figure(2)
+    plt.plot(alpha, Cd)
+    plt.grid()
+    plt.xlabel("alpha")
+    plt.ylabel("Cd")
+    plt.savefig("Cd.png", dpi=300)
+
+    plt.figure(3)
+    plt.plot(Cd, Cl)
+    plt.grid()
+    plt.xlabel("Cd")
+    plt.ylabel("Cl")
+    plt.savefig("lilienthal.png", dpi=300)
 
 #### START OF THE MAIN LOOP
 def main (argv):
@@ -85,44 +98,67 @@ def main (argv):
             print "setting reference area to ", arg
             Ac = arg
 
+    raw2D = []    # leeres array initialisieren
+    raw3D = []
+    file_counter = 0
+
+    for file in inputfiles:
+        f_in = open(file, 'r')
+        for line in f_in:
+            # tmp = [x.strip('(').strip(')') for x in line.split()]
+            tmp = [x.strip('(').strip(')') for x in line.split()]
+            if tmp[0] == '#':           # skip comments
+                print "skipping line: ", line
+                next
+            else:
+                raw2D.append(map(float, tmp))
+        raw3D.append(raw2D)
+        raw2D = []
+
+    # now that all the data is imported from the inutfiles, convert the array to a numpy array
+    raw3D = numpy.array(raw3D)
+
+    '''
+    the data now needs to be cooked with some voodo:
+    at the moment the 3rd dimension is depended on the different input filesi
+    the array needs to be transposed in order to easily iterate over the same alphas for
+    different files
+    '''
+
+    raw3DT = numpy.transpose(raw3D)     # its not that much voodo. actually its no vodoo at all,..
+
+    averaged = []
+    averaged2D = []
+    for file in raw3DT:
+        for alpha in file:
+            # print numpy.average(alpha)
+            averaged.append(numpy.average(alpha))
+        # print len(averaged)
+        # print "----"
+        averaged2D.append(averaged)
+        averaged = []
+        #averaged = numpy.array(averaged)
+    averaged2D = numpy.array(averaged2D)
+    '''
+    now we need to transpose it back in order to print it out
+    '''
+    averaged2DT = numpy.transpose(averaged2D)
+
+    f_out = open('averaged_data.dat', 'w')
+
+    for alpha in averaged2DT:
+        for value in alpha:
+            f_out.write(str(value))
+            f_out.write(" ")
+        f_out.write ("\n")
+    f_out.close()
+    # print raw3DT
+    #     Fpx = numpy.array(raw[:,FORCE_PRESSURE_X])
+
+    plot_fig(averaged2DT[:,0], averaged2DT[:,1], averaged2DT[:,2], averaged2DT[:,3], averaged2DT[:,4])
+
     sys.exit(0)
 
-    raw = []    # leeres array initialisieren
-
-    f_in = open(inputfile, 'r')
-
-    for line in f_in:
-        tmp = [x.strip('(').strip(')') for x in line.split()]
-        if tmp[0] == '#':           # skip comments
-            next
-        else:
-            if float(tmp[0]) < starttime:
-                next
-            elif float(tmp[0]) > endtime:
-                break
-            else:
-                raw.append(map(float, tmp))
-
-    raw = numpy.array(raw)
-
-    time = numpy.array(raw[:,TIME])
-
-    Fpx = numpy.array(raw[:,FORCE_PRESSURE_X])
-    Fpy = numpy.array(raw[:,FORCE_PRESSURE_Y])
-    Fpz = numpy.array(raw[:,FORCE_PRESSURE_Z])
-
-    Fvx = numpy.array(raw[:,FORCE_VISCOUS_X])
-    Fvy = numpy.array(raw[:,FORCE_VISCOUS_Y])
-    Fvz = numpy.array(raw[:,FORCE_VISCOUS_Z])
-
-    Fp_avg = [ numpy.average(Fpx), numpy.average(Fpy), numpy.average(Fpz) ]
-    Fp_stdv = [ numpy.std(Fpx), numpy.std(Fpy), numpy.std(Fpz) ]
-
-    Fv_avg = [ numpy.average(Fvx), numpy.average(Fvy), numpy.average(Fvz) ]
-    Fp_stdv = [ numpy.std(Fvx), numpy.std(Fvy), numpy.std(Fvz) ]
-
-    print "Average Forces due to Pressure: ", Fp_avg
-    print "Average Froces due to Viscous Effect: ", Fv_avg
 
     if calc_cd == True:
         Cd = (2 * Fp_avg[0]) / ( u_c * u_c * coeff_area)

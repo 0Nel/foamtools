@@ -1,4 +1,4 @@
-Stepper [degrees]	Lift transducer [mV/V]	stdev lift [mV/V]	Drag transducer [mV/V]	stdev drag [mV/V]
+# Stepper [degrees]	Lift transducer [mV/V]	stdev lift [mV/V]	Drag transducer [mV/V]	stdev drag [mV/V]
 -45.000000	5.424323	0.025784	-23.009861	2.627745
 -42.000000	5.590187	0.270876	-18.330591	3.144454
 -39.000000	5.527053	0.168942	-16.082556	1.155010
