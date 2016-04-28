@@ -208,9 +208,9 @@ def main (argv):
     # 2 * Fw / rho * u_c^2  * A
 
     try:
-        opts, args = getopt.getopt(argv, "i:o:v:p:f:s:e:", ["input-file=", "output-file=", "inlet-velocity=", "propeller-diameter=", "rotational-frequency=", "start-time=", "end-time=", "fft", "Cd"])
+        opts, args = getopt.getopt(argv, "i:o:v:s:e:v:a:", ["input-file=", "output-file=", "inlet-velocity=", "reference-area", "start-time=", "end-time=", "fft", "Cd"])
     except getopt.GetoptError:
-        print 'foamFancy_averageForces.py -i <inputfile> [-o <outputfile> -v velocity -p diameter -f frequency -s starttime -e endtime -f]'
+        print 'foamFancy_averageForces.py -i <inputfile> [-o <outputfile> -v velocity -s starttime -e endtime -a Area --Cd --fft]'
         sys.exit(2)
 
     for opt, arg in opts:
@@ -222,11 +222,9 @@ def main (argv):
         elif opt in ("-o", "--output-file"):
             outputfile = arg
         elif opt in ("-v", "--inlet-velocity"):
-            Vc = arg
-        elif opt in ("-p", "--propeller-diameter"):
-            D = arg
-        elif opt in ("-f", "--rotational-frequency"):
-            F = arg
+            u_c = float(arg)
+        elif opt in ("-a", "--reference-area"):
+            coeff_area = float(arg)
         elif opt in ("-s", "--start-time"):
             starttime = float(arg)
             print "start time set to: ", starttime
@@ -289,7 +287,7 @@ def main (argv):
     print "Average Froces due to Viscous Effect: ", Fv_avg
 
     if calc_cd == True:
-        Cd = (2 * Fp_avg[0]) / ( u_c * u_c * coeff_area)
+        Cd = (2 * (Fp_avg[0] + Fv_avg[0])) / ( u_c * u_c * coeff_area)
         print "Average Drag Coefficient: ", Cd
 
     if not os.path.isdir('./plots'):
