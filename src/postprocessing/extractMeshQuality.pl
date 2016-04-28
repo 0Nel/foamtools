@@ -70,7 +70,7 @@ print OUT "# TIME non-orthogonality_max non-orthogonality_mean skewness\n";
 
 my $counter = 0;
 
-for my $time_step (@time) {
+for my $time_step (sort @time) {
     print OUT $time_step, " ", $non_ortho_max[$counter], " ", $non_ortho_mean[$counter], " ", $skew[$counter], "\n";
     $counter ++;
 }
