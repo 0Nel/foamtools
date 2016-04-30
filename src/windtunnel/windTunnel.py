@@ -3,7 +3,6 @@
 import sys, getopt, os, numpy, math, glob
 # import re
 import matplotlib.pyplot as plt
-from scipy import interpolate
 
 plt.rcParams.update({'font.size': 15})
 
@@ -12,26 +11,26 @@ def nextpow2 (i):
     while n < i: n *= 2
     return n
 
-def plot_fig (alpha, Cl, Cl_stdv, Cd, Cd_stdv):
+def plot_fig (alpha, Cl, Cl_std, Cd, Cd_std):
 
-    ### plot an Lift polar, drag polar and a lilienthalpolar
-
-    ## example code for plotting
-    plt.figure(1)
+    plt.figure(3)
+    plt.title('Auftriebsbeiwert')
     plt.plot(alpha, Cl)
     plt.grid()
     plt.xlabel("alpha")
     plt.ylabel("Cl")
     plt.savefig("Cl.png", dpi=300)
 
-    plt.figure(2)
+    plt.figure(4)
+    plt.title('Widerstandsbeiwert')
     plt.plot(alpha, Cd)
     plt.grid()
     plt.xlabel("alpha")
     plt.ylabel("Cd")
     plt.savefig("Cd.png", dpi=300)
 
-    plt.figure(3)
+    plt.figure(5)
+    plt.title('Lilienthalpolare')
     plt.plot(Cd, Cl)
     plt.grid()
     plt.xlabel("Cd")
@@ -39,27 +38,69 @@ def plot_fig (alpha, Cl, Cl_stdv, Cd, Cd_stdv):
     plt.savefig("lilienthal.png", dpi=300)
 
 ### reference function to convert mV/V to N
-def mVtoDrag(m, off, Cd):
-    Cd = m * Cd + off
+def mVtoDrag(param, Cd):
+    tmp = param[0] * Cd + param[1]
+    
+def mVtoLift(param, Cl):
+    return param[0] * Cl + param[1]
 
-def mVtoLift(m, off, Cl):
-    Cd = m * Cl + off
+def getReferenceDrag(filename):
 
-def getReferenceDrag(m, off, file):
+    weight = []
+    force = []
+    force_std = []
 
-    angle = []
-    cd = []
-    cd_std = []
-
-    f_in = open(file, 'r')
+    f_in = open(filename, 'r')
     for line in f_in:
-        tmp = [line.split()]
-        if tmp[0] == '#':
-            next
-        else:
-            angle, cd, cd_std = map(float, tmp))
+        tmp = line.split()
+        if not tmp[0] == '#':
+            weight.append(float(tmp[0]))
+            force.append(float(tmp[1]))
+            force_std.append(float(tmp[2]))
+    
+    weight2D = numpy.array([weight, numpy.ones(len(weight))])
+    
+    param = numpy.linalg.lstsq(weight2D.T, force)[0]
+   
+    ## example code for plotting
+    plt.figure(1)
+    plt.title('linear regression drag')
+    plt.plot(weight, force)
+    plt.grid()
+    plt.xlabel("weight")
+    plt.ylabel("force")
+    plt.savefig("drag_reference.png", dpi=300)
+    
+    return param
 
+def getReferenceLift(filename):
 
+    weight = []
+    force = []
+    force_std = []
+
+    f_in = open(filename, 'r')
+    for line in f_in:
+        tmp = line.split()
+        if not tmp[0] == '#':
+            weight.append(float(tmp[0]))
+            force.append((tmp[1]))
+            force_std.append(tmp[2])
+    
+    weight2D = numpy.array([weight, numpy.ones(len(weight))])
+    
+    param = numpy.linalg.lstsq(weight2D.T, force)[0]
+    
+    ## example code for plotting
+    plt.figure(2)
+    plt.title('linear regression lift')
+    plt.plot(weight, force)
+    plt.grid()
+    plt.xlabel("weight")
+    plt.ylabel("force")
+    plt.savefig("lift_reference.png", dpi=300)
+
+    return param
 
 #### START OF THE MAIN LOOP
 def main (argv):
@@ -76,6 +117,8 @@ def main (argv):
     inputfiles = []         # array to save the file path
     outputfile = ''         # output file path
     parameterfile = 'windtunnel.inputrc'
+    drag_reference = ''
+    lift_reference = ''
 
     coeffs = False          # calculate coeffs?
 
@@ -87,14 +130,17 @@ def main (argv):
     Uc = 1.0                # Reference speed
     Lc = 1.0                # Reference length
 
+    conversion_drag = [1.0, 1.0]
+    conversion_lift = [1.0, 1.0]
+
     # 2 * Fw / rho * u_c^2  * A
 
     ### now get the command line parameters provided by the user
 
     try:
-        opts, args = getopt.getopt(argv, "i:o:v:p:f:s:e:", ["input-files=", "output-file=", "inlet-velocity=", "reference-area", "coeffs"])
+        opts, args = getopt.getopt(argv, "i:o:v:a:d:l:", ["input-files=", "output-file=", "inlet-velocity=", "reference-area", "coeffs", "drag-reference", "lift-reference"])
     except getopt.GetoptError:
-        print 'foamFancy_averageForces.py -i <inputfiles> [-o <outputfile> -v <velocity> -r <reference area> -c]'
+        print 'windtunnel.py -i <inputfiles> [-o <outputfile> -v <velocity> -r <reference area> -c -d <drag reference file> -l <lift reference file>]'
         sys.exit(-1)
 
     for opt, arg in opts:
@@ -114,13 +160,27 @@ def main (argv):
         elif opt in ("-o", "--output-file"):
             outputfile = arg
         elif opt in ("-v", "--inlet-velocity"):
+            print "reference velocity set to: ", arg
             Uc = arg
-        elif opt in ("-c", "--coeffs"):
-            print "adding coefficients to the workflow"
-            calc_coeffs = True
-        elif opt in ("-r", "--reference-area"):
-            print "setting reference area to ", arg
+        elif opt in ("-a", "--reference-area"):
+            print "reference area set to ", arg
             Ac = arg
+        elif opt in ("-d", "--drag-reference"):
+            if (os.path.isfile(arg)):
+                print "using ", arg, " as drag reference file"
+                conversion_drag = getReferenceDrag(arg)
+                print "conversion drag: ", conversion_drag
+            else:
+                print "not a valid file: ", arg, "exiting"
+                sys.exit(-1)
+        elif opt in ("-l", "--lift-reference"):
+            if (os.path.isfile(arg)):
+                print "using ", arg, " as lift reference file"
+                conversion_lift = getReferenceLift(arg)
+                print "conversion lift: ", conversion_lift
+            else:
+                print "not a valid file: ", arg, "exiting"
+                sys.exit(-1)
 
     raw2D = []    # leeres array initialisieren
     raw3D = []
@@ -132,7 +192,7 @@ def main (argv):
             # tmp = [x.strip('(').strip(')') for x in line.split()]
             tmp = [x.strip('(').strip(')') for x in line.split()]
             if tmp[0] == '#':           # skip comments
-                print "skipping line: ", line
+                # print "skipping line: ", line
                 next
             else:
                 raw2D.append(map(float, tmp))
@@ -141,6 +201,9 @@ def main (argv):
 
     # now that all the data is imported from the inutfiles, convert the array to a numpy array
     raw3D = numpy.array(raw3D)
+
+    # get the references for lift and drag and calculate the linear regression
+    
 
     '''
     the data now needs to be cooked with some voodo:
@@ -155,20 +218,18 @@ def main (argv):
     averaged2D = []
     for file in raw3DT:
         for alpha in file:
-            # print numpy.average(alpha)
             averaged.append(numpy.average(alpha))
-        # print len(averaged)
-        # print "----"
         averaged2D.append(averaged)
         averaged = []
-        #averaged = numpy.array(averaged)
     averaged2D = numpy.array(averaged2D)
+
     '''
     now we need to transpose it back in order to print it out
     '''
+
     averaged2DT = numpy.transpose(averaged2D)
 
-    f_out = open('averaged_data.dat', 'w')
+    f_out = open('averaged_data_raw.dat', 'w')
 
     for alpha in averaged2DT:
         for value in alpha:
@@ -176,69 +237,16 @@ def main (argv):
             f_out.write(" ")
         f_out.write ("\n")
     f_out.close()
-    # print raw3DT
-    #     Fpx = numpy.array(raw[:,FORCE_PRESSURE_X])
 
-    plot_fig(averaged2DT[:,0], averaged2DT[:,1], averaged2DT[:,2], averaged2DT[:,3], averaged2DT[:,4])
+    alpha = averaged2DT[:,0]
 
-    sys.exit(0)
+    Cd = mVtoDrag(conversion_drag, averaged2DT[:,1])
+    Cd_std = mVtoDrag(conversion_drag, averaged2DT[:,2])
+    
+    Cl = mVtoLift(conversion_drag, averaged2DT[:,3])
+    Cl_std = mVtoLift(conversion_drag, averaged2DT[:,4])
 
-
-    if calc_cd == True:
-        Cd = (2 * Fp_avg[0]) / ( u_c * u_c * coeff_area)
-        print "Average Drag Coefficient: ", Cd
-
-    if not os.path.isdir('./plots'):
-        os.mkdir('plots')
-
-    f_out = open('plots/summary.txt', 'w')
-    f_out.writelines('# Average Forces due to pressure:\n'
-        +'Fpx: '
-        + str(Fp_avg[0])
-        +  ' Fpy: '
-        + str(Fp_avg[1])
-        + ' Fpz: '
-        + str(Fp_avg[2])
-        + '\n' )
-
-    f_out.writelines('# Average Forces due to viscous effects:\n'
-        + 'Fpx: '
-        + str(Fv_avg[0])
-        +  ' Fpy: '
-        + str(Fv_avg[1])
-        + ' Fpz: '
-        + str(Fv_avg[2])
-        + '\n' )
-
-    if (calc_cd == True):
-        f_out.writelines('# Average Drag Coefficient:\n'
-            + 'Cd: '
-            + str(Cd)
-            + '\n')
-
-    f_out.close()
-
-    plot_fig(time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz)
-
-    if calc_fft == True:
-        fft_analysis(time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz, Fp_avg, Fv_avg)
-
-    # nach Dr. Baars
-    # Nfft = int(math.pow(2, math.ceil(math.log(len(Fx),2))))
-
-    # Fx_fft = numpy.fft.fft(Fx, Nfft)
-    # Fx_fft_freq = numpy.fft.fftfreq(Nfft, d=sf)
-
-    #Fx_fft_freq = fs/2 * numpy.linspace(0, 1, Nfft)
-
-    #Fx_fft.abs
-
-    # Fx_fft_abs = abs(Fx_fft)
-    #plt.plot(Fx_fft_freq, Fx_fft_abs, 'rs')
-    # plt.plot(Fx_fft_freq, Fx_fft_abs)
-    #plt.hist(Fx_fft_abs)
-    # plt.xlim(0)
-    # plt.yscale('log')
+    plot_fig(alpha, Cd, Cd_std, Cl, Cl_std)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
