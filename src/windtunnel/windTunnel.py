@@ -11,7 +11,9 @@ def nextpow2 (i):
     while n < i: n *= 2
     return n
 
-def plot_fig (alpha, Cl, Cl_std, Cd, Cd_std):
+def plot_fig (alpha, Cd, Cd_std, Cl, Cl_std):
+    print len(alpha)
+    print len(Cl)
 
     plt.figure(3)
     plt.title('Auftriebsbeiwert')
@@ -39,8 +41,8 @@ def plot_fig (alpha, Cl, Cl_std, Cd, Cd_std):
 
 ### reference function to convert mV/V to N
 def mVtoDrag(param, Cd):
-    tmp = param[0] * Cd + param[1]
-    
+    return param[0] * Cd + param[1]
+
 def mVtoLift(param, Cl):
     return param[0] * Cl + param[1]
 
@@ -57,11 +59,11 @@ def getReferenceDrag(filename):
             weight.append(float(tmp[0]))
             force.append(float(tmp[1]))
             force_std.append(float(tmp[2]))
-    
+
     weight2D = numpy.array([weight, numpy.ones(len(weight))])
-    
+
     param = numpy.linalg.lstsq(weight2D.T, force)[0]
-   
+
     ## example code for plotting
     plt.figure(1)
     plt.title('linear regression drag')
@@ -70,7 +72,7 @@ def getReferenceDrag(filename):
     plt.xlabel("weight")
     plt.ylabel("force")
     plt.savefig("drag_reference.png", dpi=300)
-    
+
     return param
 
 def getReferenceLift(filename):
@@ -86,11 +88,11 @@ def getReferenceLift(filename):
             weight.append(float(tmp[0]))
             force.append((tmp[1]))
             force_std.append(tmp[2])
-    
+
     weight2D = numpy.array([weight, numpy.ones(len(weight))])
-    
+
     param = numpy.linalg.lstsq(weight2D.T, force)[0]
-    
+
     ## example code for plotting
     plt.figure(2)
     plt.title('linear regression lift')
@@ -108,11 +110,11 @@ def main (argv):
 ## positions of the data in the files
     ALPHA = 0
 
-    CD = 1
-    CD_STDV = 2
+    CD = 3
+    CD_STDV = 4
 
-    CL = 3
-    CL_STDV = 4
+    CL = 1
+    CL_STDV = 2
 
     inputfiles = []         # array to save the file path
     outputfile = ''         # output file path
@@ -203,7 +205,7 @@ def main (argv):
     raw3D = numpy.array(raw3D)
 
     # get the references for lift and drag and calculate the linear regression
-    
+
 
     '''
     the data now needs to be cooked with some voodo:
@@ -238,13 +240,13 @@ def main (argv):
         f_out.write ("\n")
     f_out.close()
 
-    alpha = averaged2DT[:,0]
+    alpha = averaged2DT[:,ALPHA]
 
-    Cd = mVtoDrag(conversion_drag, averaged2DT[:,1])
-    Cd_std = mVtoDrag(conversion_drag, averaged2DT[:,2])
-    
-    Cl = mVtoLift(conversion_drag, averaged2DT[:,3])
-    Cl_std = mVtoLift(conversion_drag, averaged2DT[:,4])
+    Cd = mVtoDrag(conversion_drag, averaged2DT[:,CD])
+    Cd_std = mVtoDrag(conversion_drag, averaged2DT[:,CD_STDV])
+
+    Cl = mVtoLift(conversion_drag, averaged2DT[:,CL])
+    Cl_std = mVtoLift(conversion_drag, averaged2DT[:,CL_STDV])
 
     plot_fig(alpha, Cd, Cd_std, Cl, Cl_std)
 
