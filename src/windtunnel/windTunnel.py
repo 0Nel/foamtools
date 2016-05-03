@@ -55,14 +55,19 @@ def getReferenceDrag(filename):
     f_in = open(filename, 'r')
     for line in f_in:
         tmp = line.split()
-        if not tmp[0] == '#':
+        print tmp
+        if len(tmp) > 0 and not tmp[0] == '#':
             weight.append(float(tmp[0]))
             force.append(float(tmp[1]))
             force_std.append(float(tmp[2]))
 
     weight2D = numpy.array([weight, numpy.ones(len(weight))])
+    
+    print weight2D
 
     param = numpy.linalg.lstsq(weight2D.T, force)[0]
+    print  numpy.linalg.lstsq(weight2D.T, force)[0]
+    
 
     ## example code for plotting
     plt.figure(1)
@@ -84,14 +89,18 @@ def getReferenceLift(filename):
     f_in = open(filename, 'r')
     for line in f_in:
         tmp = line.split()
-        if not tmp[0] == '#':
+        if len(tmp) > 0 and not tmp[0] == '#':
             weight.append(float(tmp[0]))
             force.append((tmp[1]))
             force_std.append(tmp[2])
 
     weight2D = numpy.array([weight, numpy.ones(len(weight))])
+    
+    print weight2D
 
     param = numpy.linalg.lstsq(weight2D.T, force)[0]
+
+    print param
 
     ## example code for plotting
     plt.figure(2)
@@ -142,7 +151,7 @@ def main (argv):
     try:
         opts, args = getopt.getopt(argv, "i:o:v:a:d:l:", ["input-files=", "output-file=", "inlet-velocity=", "reference-area", "coeffs", "drag-reference", "lift-reference"])
     except getopt.GetoptError:
-        print 'windtunnel.py -i <inputfiles> [-o <outputfile> -v <velocity> -r <reference area> -c -d <drag reference file> -l <lift reference file>]'
+        print 'windtunnel.py -i <inputfiles> [-o <outputfile> -v <velocity> -a <reference area> -c -d <drag reference file> -l <lift reference file>]'
         sys.exit(-1)
 
     for opt, arg in opts:
