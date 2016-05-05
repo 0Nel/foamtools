@@ -1,5 +1,5 @@
-DRAG		
-Weight [g]	Transducer [mV]	Stddev [mV]
+# DRAG		
+# Weight [g]	Transducer [mV]	Stddev [mV]
 0.000000	3.934425	0.093571
 10.000000	1.725552	0.127036
 20.000000	-0.239313	0.083638

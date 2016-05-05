@@ -1,5 +1,5 @@
-LIFT		
-Weight [g]	Transducer [mV]	Stddev [mV]
+# LIFT		
+# Weight [g]	Transducer [mV]	Stddev [mV]
 -150.000000	4.044230	0.050044
 -100.000000	5.863880	0.082711
 -50.000000	7.680503	0.053129
