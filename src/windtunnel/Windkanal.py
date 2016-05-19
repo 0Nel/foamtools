@@ -11,16 +11,16 @@ def nextpow2 (i):
     while n < i: n *= 2
     return n
  
-def plot_fig (alpha, Cd, Cd_std, Cl, Cl_std):
+def plot_fig (alpha, Cd, Cl):	# Cd_std, Cl, Cl_std):
 
     plt.figure(3)
     plt.title('Auftriebsbeiwert')
-    plt.plot(alpha, Cl)
+    plt.plot(alpha, Cl, color = 'red')
     plt.grid()
     plt.xlabel("alpha")
     plt.ylabel("Cl")
     plt.savefig("Cl.png", dpi=300)
-    
+
     plt.figure(4)
     plt.title('Widerstandsbeiwert')
     plt.plot(alpha, Cd)
@@ -29,7 +29,7 @@ def plot_fig (alpha, Cd, Cd_std, Cl, Cl_std):
     plt.ylabel("Cd")
     plt.savefig("Cd.png", dpi=300)
 
-    plt.figure(4)
+    plt.figure(5)
     plt.title('Lilienthalpolare')
     plt.plot(Cd, Cl)
     plt.grid()
@@ -39,7 +39,6 @@ def plot_fig (alpha, Cd, Cd_std, Cl, Cl_std):
 
 ### reference function to convert mV/V to N
 def mVtoDrag(param, Cd, Ac, Uc):
-    '''TODO: Catch Cd vs. Cd_std'''
     try:
         Uc = float(Uc)
         Ac = float(Ac)
@@ -61,7 +60,6 @@ def getReferenceDrag(filename):
 
     weight = []
     force = []
-    force_std = []
 
     f_in = open(filename, 'r')
     for line in f_in:
@@ -69,11 +67,10 @@ def getReferenceDrag(filename):
         if len(tmp) > 0 and not tmp[0] == '#':
             weight.append(float(tmp[0]))
             force.append(float(tmp[1]))
-            force_std.append(float(tmp[2]))
 
-    weight2D = numpy.array([weight, numpy.ones(len(weight))])
+    force2D = numpy.array([force, numpy.ones(len(force))])
     
-    param = numpy.linalg.lstsq(weight2D.T, force)[0]
+    param = numpy.linalg.lstsq(force2D.T, weight)[0]
 
     ## example code for plotting
     plt.figure(1)
@@ -90,7 +87,6 @@ def getReferenceLift(filename):
 
     weight = []
     force = []
-    force_std = []
 
     f_in = open(filename, 'r')
     for line in f_in:
@@ -98,11 +94,10 @@ def getReferenceLift(filename):
         if not tmp[0] == '#':
             weight.append(float(tmp[0]))
             force.append((tmp[1]))
-            force_std.append(tmp[2])
 
-    weight2D = numpy.array([weight, numpy.ones(len(weight))])
+    force2D = numpy.array([force, numpy.ones(len(force))])
 
-    param = numpy.linalg.lstsq(weight2D.T, force)[0]
+    param = numpy.linalg.lstsq(force2D.T, weight)[0]
 
     ## example code for plotting
     plt.figure(2)
@@ -116,10 +111,13 @@ def getReferenceLift(filename):
     return param
 
 def checkLine(line):
-    if 'Stepper' in line:                   #besser bei allen moeglichen buchstaben?
-        return True
-    else:
+    line = line.replace(',','.')
+    tmp = line.split()
+    try:
+        float(tmp[0])
         return False
+    except (ValueError):
+        return True
 
 def average(allfiles, key):                  #param = Dictionary and Key
     try:
@@ -169,6 +167,52 @@ def average(allfiles, key):                  #param = Dictionary and Key
         print key + ' is not a valid key! Please provide ' + key + ' offset file!'    
         sys.exit(-1)
 
+def getKey(item):
+	return item[0]
+    
+def merge(files):
+    if len(files) > 2:
+        print "Too many reference files given: ", files
+    elif len(files[0]) == len(files[1]):
+        raw0 = []
+        raw1 = []
+        count = False
+        for file in files:
+            f_in = open(file, 'r')            
+            if 'LIFT' in f_in.readline():
+                name = 'LIFT'
+            else:
+                name = 'DRAG'
+            for line in f_in:
+                skip = checkLine(line)
+                if skip:
+                    next
+                else:
+                    line = line.replace(',','.')
+                    tmp = line.split()
+                    if (count == False):
+                        raw0.append(map(float, tmp))
+                    else:
+                        raw1.append(map(float, tmp))
+            count = True       
+
+        raw0 = numpy.array(sorted(raw0, key = getKey))
+        raw1 = numpy.array(sorted(raw1, key = getKey))
+       
+        a = raw0.T[1]
+        b = raw1.T[1]  
+
+        t = raw0.T[0]
+        f_out = open(name.lower() + '_calibration_averaged_data_raw.dat', 'w')
+        for i in range(0, len(raw0)):
+            f_out.write(str(t[i]) + ' ' + str(((a[i]+b[i])/2)) +'\n')
+        f_out.close()
+        
+        return (name.lower() + '_calibration_averaged_data_raw.dat')
+    else:
+          print "Reference files have inconsistent lengths"
+          sys.exit(-1)        
+
 #### START OF THE MAIN LOOP
 def main (argv):
 
@@ -184,13 +228,14 @@ def main (argv):
     inputfiles = []         # array to save the file path
     zerofiles = []         # array to save the file path
     mountfiles = []         # array to save the file path
+    dragfiles = []      #array to save drag calibration measurements
+    liftfiles = []      #array to save drag calibration measurements
     allfiles = {}         # dictionary to save the all file arrays and set a keyword
-    
-    outputfile = ''         # output file path
 
-    Ac = 1.0                # Reference area, default value
+    Ad = 1.0                # Reference area drag, default value
+    Al = 1.0                # Reference area lift, default value
     Uc = 1.0                # Reference speed
-    Lc = 1.0                # Reference length
+#    Lc = 1.0                # Reference length
 
     conversion_drag = [1.0, 1.0]
     conversion_lift = [1.0, 1.0]
@@ -200,9 +245,9 @@ def main (argv):
     ### now get the command line parameters provided by the user
 
     try:
-        opts, args = getopt.getopt(argv, "i:o:v:a:d:l:z:m:", ["input-files=", "output-file=", "inlet-velocity=", "reference-area", "coeffs", "drag-reference", "lift-reference", "zero-offset", "mount-offset"])
+        opts, args = getopt.getopt(argv, "i:v:s:a:d:l:z:m:", ["input-files=", "inlet-velocity=", "reference-area-drag", "reference-area-lift", "drag-reference", "lift-reference", "zero-offset", "mount-offset"])
     except getopt.GetoptError:
-        print 'windtunnel.py -i <inputfiles> [-o <outputfile> -v <velocity> -a <reference area> -c -d <drag reference file> -l <lift reference file> -z <zero offset> -m <mount offset>]'
+        print 'windtunnel.py -i <inputfiles> [-v <velocity> -s <reference area drag> -a <reference area lift> -c -d <drag reference file> -l <lift reference file> -z <zero offset> -m <mount offset>]'
         sys.exit(-1)
 
     for opt, arg in opts:
@@ -225,30 +270,6 @@ def main (argv):
                 print "no valid input.. dying."
                 sys.exit(-1)
             allfiles['input'] = inputfiles
-        elif opt in ("-o", "--output-file"):
-            outputfile = arg
-        elif opt in ("-v", "--inlet-velocity"):
-            print "reference velocity set to: ", arg
-            Uc = arg
-        elif opt in ("-a", "--reference-area"):
-            print "reference area set to ", arg
-            Ac = arg
-        elif opt in ("-d", "--drag-reference"):
-            if (os.path.isfile(arg)):
-                print "using ", arg, " as drag reference file"
-                conversion_drag = getReferenceDrag(arg)
-                print "conversion drag: ", conversion_drag
-            else:
-                print "not a valid file: ", arg, "exiting"
-                sys.exit(-1)
-        elif opt in ("-l", "--lift-reference"):
-            if (os.path.isfile(arg)):
-                print "using ", arg, " as lift reference file"
-                conversion_lift = getReferenceLift(arg)
-                print "conversion lift: ", conversion_lift
-            else:
-                print "not a valid file: ", arg, "exiting"
-                sys.exit(-1)
         elif opt in ("-z", "--zero-offset"):
             if (os.path.isfile(arg)):                       #checks existence of inputfile
                 print "using ", arg, " as zero offset file"
@@ -287,37 +308,83 @@ def main (argv):
                 print "not a valid file: ", arg, "exiting"
                 sys.exit(-1)
             allfiles['mount'] = mountfiles
+        elif opt in ("-d", "--drag-reference"):
+            if (os.path.isfile(arg)):                       #checks existence of inputfile
+                print "using ", arg, " as drag reference file"
+                dragfiles.append(arg)
+            elif (len(arg) > 0):                            #catches and appends all inputfiles
+                dragfiles = glob.glob(arg)
+                if (len(dragfiles) == 0):                  #catch Schreibfehler im Pfad
+                    print "not a valid file: ", arg
+                    sys.exit(-1)                
+                else:
+                    for i in range(0, len(dragfiles)):
+                        print 'using', dragfiles[i], " as drag reference file"
+                    dragfiles = merge(dragfiles)
+            else:
+                print "not a valid file: ", arg, "exiting"
+                sys.exit(-1)
+            conversion_drag = getReferenceDrag(dragfiles)
+            print "conversion drag: ", conversion_drag
+            allfiles['drag'] = dragfiles             
+        elif opt in ("-l", "--lift-reference"):
+            if (os.path.isfile(arg)):                       #checks existence of inputfile
+                print "using ", arg, " as lift reference file"
+                liftfiles.append(arg)
+            elif (len(arg) > 0):                            #catches and appends all inputfiles
+                liftfiles = glob.glob(arg)
+                if (len(liftfiles) == 0):                  #catch Schreibfehler im Pfad
+                    print "not a valid file: ", arg
+                    sys.exit(-1)                
+                else:
+                    for i in range(0, len(liftfiles)):
+                        print 'using', liftfiles[i], " as lift reference file"
+                    liftfiles = merge(liftfiles)
+            else:
+                print "not a valid file: ", arg, "exiting"
+                sys.exit(-1)
+            conversion_lift = getReferenceLift(liftfiles)
+            print "conversion lift: ", conversion_lift
+            allfiles['lift'] = liftfiles  
+        elif opt in ("-v", "--inlet-velocity"):
+            print "reference velocity set to: ", arg
+            Uc = arg
+        elif opt in ("-s", "--reference-area-lift"):
+            print "reference area drag set to ", arg
+            Ad = arg
+        elif opt in ("-a", "--reference-area-lift"):
+            print "reference area lift set to ", arg
+            Al = arg
             
     data = average(allfiles, 'input')
     zero = average(allfiles, 'zero')
     mount = average(allfiles, 'mount')
 
 #### Mehrere Kalibrierdateien einlesen, sortieren und dann erst verarbeiten
-
-    if numpy.average(zero.T[0]) == 0:
+    if  numpy.std(zero.T[0]) == 0:
         zeroLift = numpy.average(zero.T[1])
         zeroDrag = numpy.average(zero.T[3])
         data.T[1] = numpy.subtract(data.T[1], zeroLift)
         data.T[3] = numpy.subtract(data.T[3], zeroDrag)
     else:
-        print 'Mount Offset has an angle of attack greater than zero.'
+        print 'Zero Offset has an inconsistent angle of attack.'
 
-    if numpy.average(mount.T[0]) == 0:
+    if numpy.std(mount.T[0]) == 0:
         mountLift = numpy.average(mount.T[1])
         mountDrag = numpy.average(mount.T[3])
         data.T[1] = numpy.subtract(data.T[1], mountLift)
         data.T[3] = numpy.subtract(data.T[3], mountDrag) 
     else:
-        print 'Mount Offset has an angle of attack greater than zero.'
+        print 'Mount Offset has an inconsistent angle of attack.'
 
     alpha = data[:,ALPHA]
 
-    Cd = mVtoDrag(conversion_drag, data[:,CD],Ac,Uc)
-    Cd_std = mVtoDrag(conversion_drag, data[:,CD_STDV],Ac,Uc)
-    Cl = mVtoLift(conversion_drag, data[:,CL], Ac, Uc)
-    Cl_std = mVtoLift(conversion_drag, data[:,CL_STDV], Ac, Uc)
+    Cd = mVtoDrag(conversion_drag, data[:,CD],Ad,Uc)
+#    Cd_std = mVtoDrag(conversion_drag, data[:,CD_STDV],Ad,Uc)
+    Cl = mVtoLift(conversion_lift, data[:,CL], Al, Uc)
+#    Cl_std = mVtoLift(conversion_lift, data[:,CL_STDV], Al, Uc)
 
-    plot_fig(alpha, Cd, Cd_std, Cl, Cl_std)
+    plot_fig(alpha, Cd, Cl) # Cd_std, Cl, Cl_std)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
