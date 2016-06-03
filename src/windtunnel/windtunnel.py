@@ -6,6 +6,16 @@ import matplotlib.pyplot as plt
 
 plt.rcParams.update({'font.size': 15})
 
+def toDot (string):
+    tmp = string.replace(',', '.')
+    return float(tmp)
+
+def parseLine (line):
+    try:
+        return [toDot(string) for string in line.split()]
+    except:
+        return None
+
 def nextpow2 (i):
     n = 1
     while n < i: n *= 2
@@ -56,7 +66,7 @@ def getReferenceDrag(filename):
     for line in f_in:
         tmp = line.split()
         print tmp
-        if len(tmp) > 0 and not tmp[0] == '#':
+        if len(tmp) > 0 and not tmp[0] == '#' and not 'Stepper' in tmp:
             weight.append(float(tmp[0]))
             transducer.append(float(tmp[1]))
             transducer_std.append(float(tmp[2]))
@@ -85,7 +95,7 @@ def getReferenceLift(filename):
     f_in = open(filename, 'r')
     for line in f_in:
         tmp = line.split()
-        if len(tmp) > 0 and not tmp[0] == '#':
+        if len(tmp) > 0 and not tmp[0] == '#' and not 'Stepper' in tmp:
             weight.append(float(tmp[0]))
             transducer.append((tmp[1]))
             transducer_std.append(tmp[2])
@@ -211,28 +221,23 @@ def main (argv):
     if calc_zero == True:
         f_in = open(zerofile)
         for line in f_in:
-            tmp = [x.strip('(').strip(')') for x in line.split()]
-            if len(tmp) > 0 and tmp[0] == '#':           # skip comments
-                # print "skipping line: ", line
-                next
-            else:
+            arr = parseLine(line)
+            if arr :
                 raw1D.append(float(tmp[0]))
 
     for file in inputfiles:
         f_in = open(file, 'r')
-        for line in f_in:
-            # tmp = [x.strip('(').strip(')') for x in line.split()]
-            tmp = [x.strip('(').strip(')') for x in line.split()]
-            if tmp[0] == '#':           # skip comments
-                # print "skipping line: ", line
-                next
-            else:
-                raw2D.append(map(float, tmp))
+        for line in f_in:            
+            arr = parseLine(line)
+            if arr :
+                raw2D.append(arr)
         raw3D.append(raw2D)
         raw2D = []
 
     # now that all the data is imported from the inutfiles, convert the array to a numpy array
     raw3D = numpy.array(raw3D)
+    
+    print raw3D
 
     # get the references for lift and drag and calculate the linear regression
 

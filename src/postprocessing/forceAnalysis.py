@@ -4,7 +4,10 @@ import sys, getopt, os, numpy, math
 import re
 import matplotlib.pyplot as plt
 
-plt.rcParams.update({'font.size': 15})
+plt.rcParams.update({	'legend.fontsize' : 18,
+		'axes.titlesize' : 20, 	#Title
+		'axes.labelsize' : 18	#Axenbeschriftung
+	  })
 
 def movingAverage (values, window):
     weights = numpy.repeat(1.0, window)/window
@@ -20,30 +23,38 @@ def nextpow2 (i):
     return n
 
 def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
+
+    minTime = numpy.min(time)
+    maxTime = numpy.max(time)
+
     ## all the data is now loaded into the RAM
     plt.figure(1)
-    plt.plot(time, Fpx)
     plt.grid()
-    plt.xlabel("t")
-    plt.ylabel("Fpx")
+    plt.xlabel("$t [s]$")
+    plt.ylabel("$F_{p,x} [N]$")
+    plt.title("Druckkraft in $X$-Richtung")
+    plt.plot(time, Fpx, linestyle = 'dashed')
     plt.savefig("plots/fpx.png", dpi=300)
 
     ## all the data is now loaded into the RAM
     plt.figure(2)
-    plt.plot(time, Fpy)
     plt.grid()
-    plt.xlabel("t")
-    plt.ylabel("Fpy")
+    plt.xlabel("$t [s]$")
+    plt.ylabel("$F_{p,y} [N]$")
+    plt.title("Druckkraft in $Y$-Richtung")
+    plt.plot(time, Fpy, linestyle = 'dashed')
     plt.savefig("plots/fpy.png", dpi=300)
 
     ## all the data is now loaded into the RAM
     plt.figure(3)
-    plt.plot(time, Fpz)
     plt.grid()
-    plt.xlabel("t")
-    plt.ylabel("Fpz")
+    plt.xlabel("$t [s]$")
+    plt.ylabel("$F_{p,z} [N]$")
+    plt.title("Druckkraft in $Z$-Richtung")
+    plt.plot(time, Fpz, linestyle = 'dashed')
     plt.savefig("plots/fpz.png", dpi=300)
 
+'''
     ## all the data is now loaded into the RAM
     plt.figure(4)
     plt.plot(time, Fvx)
@@ -67,32 +78,51 @@ def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
     plt.xlabel("t")
     plt.ylabel("Fvz")
     plt.savefig("plots/fvz.png", dpi=300)
+'''
 
-def plot_fig_fft (f, Fpxfft, Fpyfft, Fpzfft, Fvxfft, Fvyfft, Fvzfft):
+def plot_fig_fft (f, Fpxfft, Fpyfft, Fpzfft, Fvxfft, Fvyfft, Fvzfft, fmax):
     ## all the data is now loaded into the RAM
+
+    # voodo: test the average of amplitudes against the max. if >> than factor 100, make it a logarithmic plot
+
+    Fpxfft[0] = 0.0
+    Fpyfft[0] = 0.0
+    Fpzfft[0] = 0.0
+
     plt.figure(7)
-    plt.plot(f, Fpxfft)
+    if numpy.max(Fpxfft) / 100.0 - numpy.average(Fpxfft) > 100:
+        plt.loglog(f, Fpxfft)
+    else:
+        plt.semilogx(f, Fpxfft)
     plt.grid()
-    plt.xlabel("t")
-    plt.ylabel("Fpxfft")
+    plt.title("Frequency distribution $F_{px}$")
+    plt.xlabel("$f  [ s^{-1} ]$")
+    plt.ylabel("$A_{F_{p,x},fft}$")
     plt.savefig("plots/fpxfft.png", dpi=300)
 
     ## all the data is now loaded into the RAM
     plt.figure(8)
-    plt.plot(f, Fpyfft)
+    if numpy.max(Fpyfft) / 100.0 - numpy.average(Fpyfft) > 100:
+        plt.loglog(f, Fpxfft)
+    else:
+        plt.semilogx(f, Fpxfft)
     plt.grid()
-    plt.xlabel("t")
-    plt.ylabel("Fpyfft")
+    plt.title("Frequency distribution $F_{py}$")
+    plt.xlabel("$f  [ s^{-1} ]$")
+    plt.ylabel("$A_{F_{p,y},fft}$")
     plt.savefig("plots/fpyfft.png", dpi=300)
 
     ## all the data is now loaded into the RAM
     plt.figure(9)
-    plt.plot(f, Fpzfft)
+    # plt.xlim(0, fmax)
+    plt.semilogx(f, Fpzfft)
     plt.grid()
-    plt.xlabel("t")
-    plt.ylabel("Fpzfft")
+    plt.title("Frequency distribution $F_{pz}$")
+    plt.xlabel("$f  [ s^{-1} ]$")
+    plt.ylabel("$A_{F_{p,z},fft}$")
     plt.savefig("plots/fpzfft.png", dpi=300)
 
+'''
     ## all the data is now loaded into the RAM
     plt.figure(10)
     plt.plot(f, Fvxfft)
@@ -116,6 +146,7 @@ def plot_fig_fft (f, Fpxfft, Fpyfft, Fpzfft, Fvxfft, Fvyfft, Fvzfft):
     plt.xlabel("t")
     plt.ylabel("Fvzfft")
     plt.savefig("plots/fvzfft.png", dpi=300)
+'''
 
 def fft_analysis (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz, Fp_avg, Fv_avg):
 
@@ -146,12 +177,26 @@ def fft_analysis (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz, Fp_avg, Fv_avg):
 
     f = numpy.linspace(0.0, 1.0/(2*T), N/2)
 
-    plot_fig_fft(f, Fpxfft_abs, Fpyfft_abs, Fpzfft_abs, Fvxfft_abs, Fvyfft_abs, Fvzfft_abs)
+    plot_fig_fft(f, Fpxfft_abs, Fpyfft_abs, Fpzfft_abs, Fvxfft_abs, Fvyfft_abs, Fvzfft_abs, 1000.0)
 
-    maxisFpx = (-Fpxfft_abs[0:N/2]).argsort()[:20]
-    print "maxima are: "
-    for i in maxisFpx:
-        print f[i]
+#    maxisFpx = (-Fpxfft_abs[0:N/2]).argsort()[:20]
+#    print "maxima are: "
+#    for i in maxisFpx:
+#        print f[i]
+
+def toDot (string):
+    tmp = string.replace(',', '.')
+    return float(tmp)
+
+def parseLine (line):
+    try:
+        return [toDot(string.strip('(').strip(')')) for string in line.split()]
+    except:
+        return None
+
+# just coz itz coolz
+def argmax(L):
+    return sorted((item, index) for index, item in enumerate(L))[-1][1]
 
 #### START OF THE MAIN LOOP
 def main (argv):
@@ -187,6 +232,7 @@ def main (argv):
 
     starttime = 0.0
     endtime = 10.0
+    density = 1.0
     coeffs = False
     calc_cd = False
     calc_cl = False
@@ -208,9 +254,9 @@ def main (argv):
     # 2 * Fw / rho * u_c^2  * A
 
     try:
-        opts, args = getopt.getopt(argv, "i:o:v:s:e:v:a:", ["input-file=", "output-file=", "inlet-velocity=", "reference-area", "start-time=", "end-time=", "fft", "Cd"])
+        opts, args = getopt.getopt(argv, "i:o:v:a:s:e:d:", ["input-file=", "output-file=", "inlet-velocity=", "reference-area", "start-time=", "end-time=", "density", "fft", "Cd"])
     except getopt.GetoptError:
-        print 'foamFancy_averageForces.py -i <inputfile> [-o <outputfile> -v velocity -s starttime -e endtime -a Area --Cd --fft]'
+        print 'foamFancy_averageForces.py -i <inputfile> [-o <outputfile> -v velocity -s starttime -e endtime -a Area -d density --Cd --fft]'
         sys.exit(2)
 
     for opt, arg in opts:
@@ -231,6 +277,9 @@ def main (argv):
         elif opt in ("-e", "--end-time"):
             print "end time set to: ", endtime
             endtime = float(arg)
+        elif opt in ("-d", "--density"):
+            print "correcting for density:", arg
+            density = float(arg)
         elif opt in ("--fft"):
             print "adding fast fourier transformation analysis"
             calc_fft = True
@@ -243,7 +292,7 @@ def main (argv):
         elif opt in ("--Cl"):
             print "adding lift coefficient calculation to the workflow"
             calc_cl = True
-        elif opt in ("-Cm"):
+        elif opt in ("--Cm"):
             print "adding moment coefficient calculation to the workflow"
             calc_cm = True
 
@@ -254,28 +303,28 @@ def main (argv):
     f_in = open(inputfile, 'r')
 
     for line in f_in:
-        tmp = [x.strip('(').strip(')') for x in line.split()]
-        if tmp[0] == '#':           # skip comments
-            next
+        tmp = parseLine(line)
+        if tmp == None:
+            continue
+        if tmp[TIME] < starttime:
+            continue
+        elif tmp[TIME] > endtime:
+            break
         else:
-            if float(tmp[0]) < starttime:
-                next
-            elif float(tmp[0]) > endtime:
-                break
-            else:
-                raw.append(map(float, tmp))
+            raw.append(tmp)
 
     raw = numpy.array(raw)
 
     time = numpy.array(raw[:,TIME])
 
-    Fpx = numpy.array(raw[:,FORCE_PRESSURE_X])
-    Fpy = numpy.array(raw[:,FORCE_PRESSURE_Y])
-    Fpz = numpy.array(raw[:,FORCE_PRESSURE_Z])
+    Fpx = numpy.array(raw[:,FORCE_PRESSURE_X] * density)
+    Fpy = numpy.array(raw[:,FORCE_PRESSURE_Y] * density)
+    Fpz = numpy.array(raw[:,FORCE_PRESSURE_Z] * density)
 
-    Fvx = numpy.array(raw[:,FORCE_VISCOUS_X])
-    Fvy = numpy.array(raw[:,FORCE_VISCOUS_Y])
-    Fvz = numpy.array(raw[:,FORCE_VISCOUS_Z])
+    # do we need a density correction for the forces due to wall shear stress?
+    Fvx = numpy.array(raw[:,FORCE_VISCOUS_X] * density)
+    Fvy = numpy.array(raw[:,FORCE_VISCOUS_Y] * density)
+    Fvz = numpy.array(raw[:,FORCE_VISCOUS_Z] * density)
 
     Fp_avg = [ numpy.average(Fpx), numpy.average(Fpy), numpy.average(Fpz) ]
     Fp_stdv = [ numpy.std(Fpx), numpy.std(Fpy), numpy.std(Fpz) ]
