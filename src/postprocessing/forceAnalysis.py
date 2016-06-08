@@ -32,7 +32,8 @@ def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
     plt.grid()
     plt.xlabel("$t [s]$")
     plt.ylabel("$F_{p,x} [N]$")
-    plt.title("Druckkraft in $X$-Richtung")
+    # plt.title("Druckkraft in $X$-Richtung")
+    plt.title("Force due to pressure, longitudinal direction")
     plt.plot(time, Fpx, linestyle = 'dashed')
     plt.savefig("plots/fpx.png", dpi=300)
 
@@ -41,7 +42,8 @@ def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
     plt.grid()
     plt.xlabel("$t [s]$")
     plt.ylabel("$F_{p,y} [N]$")
-    plt.title("Druckkraft in $Y$-Richtung")
+    plt.title("Force due to pressure, lateral direction $Y$-Richtung")
+    # plt.title("Druckkraft in $Y$-Richtung")
     plt.plot(time, Fpy, linestyle = 'dashed')
     plt.savefig("plots/fpy.png", dpi=300)
 
@@ -51,6 +53,7 @@ def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
     plt.xlabel("$t [s]$")
     plt.ylabel("$F_{p,z} [N]$")
     plt.title("Druckkraft in $Z$-Richtung")
+    # plt.title("Force due to pressure,")
     plt.plot(time, Fpz, linestyle = 'dashed')
     plt.savefig("plots/fpz.png", dpi=300)
 

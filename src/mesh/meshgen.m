@@ -9,20 +9,20 @@ NACA = [0 0 1 2];     % NACA 4-digit designation as a row vector;
 
 % Mesh dimensions
 scale = 1;            % Scaling factor
-H = 8;                % *Half* height of channel
+H = 4;                % *Half* height of channel
 W = 0.1;              % *Half* depth of foil (y-direction)
-D = 16;               % Length of downstream section
+D = 6;               % Length of downstream section
 
 % Mesh resolution parameters
 Ni = 400;             % Number of interpolation points along the foil
-Nx = 250;             % Number of mesh cells along the foil
-ND = 500;             % Number of cells in the downstream direction
-NT = 100;             % Number of cells the transverse direction
+Nx = 500;             % Number of mesh cells along the foil
+ND = 250;             % Number of cells in the downstream direction
+NT = 50;             % Number of cells the transverse direction
 NW = 1;               % Number of cells in the y-direction (along the foil axis)
 
 % Expansion rates
 ExpT = 500;           % Expansion rate in transverse direction
-ExpD = 100;           % Expansion rate in the downstream direction
+ExpD = 50;           % Expansion rate in the downstream direction
 ExpArc = 75;          % Expansion rate along the inlet arc
 
 % ------------------------- END OF MESH PARAMETER REGION --------------------- %
