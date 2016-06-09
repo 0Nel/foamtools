@@ -22,6 +22,28 @@ def nextpow2 (i):
     while n < i: n *= 2
     return n
 
+def plot_Cx (time, Cd, Cl):
+
+    plt.figure(13)
+    plt.grid()
+    plt.xlabel("$t^{*}$")
+    plt.ylabel("$C_{D}$")
+    # plt.title("Druckkraft in $X$-Richtung")
+    plt.title("Zeitlicher Verlauf des Widerstandsbeiwerts")
+    plt.plot(time, Cd, linestyle = 'dashed')
+    plt.savefig("plots/cd.png", dpi=300)
+
+    ## all the data is now loaded into the RAM
+    plt.figure(14)
+    plt.grid()
+    plt.xlabel("$t^{*}$")
+    plt.ylabel("$C_{L}$")
+    plt.title("Zeitlicher Verlauf des Auftriebsbeiwerts")
+    # plt.title("Druckkraft in $Y$-Richtung")
+    plt.plot(time, Cl, linestyle = 'dashed')
+    plt.savefig("plots/cl.png", dpi=300)
+
+
 def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
 
     minTime = numpy.min(time)
@@ -31,9 +53,8 @@ def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
     plt.figure(1)
     plt.grid()
     plt.xlabel("$t [s]$")
-    plt.ylabel("$F_{p,x} [N]$")
-    # plt.title("Druckkraft in $X$-Richtung")
-    plt.title("Force due to pressure, longitudinal direction")
+    plt.title("Druckkraft in $X$-Richtung")
+    plt.title("Druckkraft in X-Richtung")
     plt.plot(time, Fpx, linestyle = 'dashed')
     plt.savefig("plots/fpx.png", dpi=300)
 
@@ -42,8 +63,7 @@ def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
     plt.grid()
     plt.xlabel("$t [s]$")
     plt.ylabel("$F_{p,y} [N]$")
-    plt.title("Force due to pressure, lateral direction $Y$-Richtung")
-    # plt.title("Druckkraft in $Y$-Richtung")
+    plt.title("Druckkraft in $Y$-Richtung")
     plt.plot(time, Fpy, linestyle = 'dashed')
     plt.savefig("plots/fpy.png", dpi=300)
 
@@ -53,7 +73,6 @@ def plot_fig (time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz):
     plt.xlabel("$t [s]$")
     plt.ylabel("$F_{p,z} [N]$")
     plt.title("Druckkraft in $Z$-Richtung")
-    # plt.title("Force due to pressure,")
     plt.plot(time, Fpz, linestyle = 'dashed')
     plt.savefig("plots/fpz.png", dpi=300)
 
@@ -98,10 +117,12 @@ def plot_fig_fft (f, Fpxfft, Fpyfft, Fpzfft, Fvxfft, Fvyfft, Fvzfft, fmax):
     else:
         plt.semilogx(f, Fpxfft)
     plt.grid()
-    plt.title("Frequency distribution $F_{px}$")
-    plt.xlabel("$f  [ s^{-1} ]$")
+    plt.title("Spektrum $F_{px}$")
+    plt.xlabel("$f [ s^{-1} ]$")
     plt.ylabel("$A_{F_{p,x},fft}$")
     plt.savefig("plots/fpxfft.png", dpi=300)
+
+    print f[numpy.argmax(Fpxfft)] 
 
     ## all the data is now loaded into the RAM
     plt.figure(8)
@@ -110,7 +131,7 @@ def plot_fig_fft (f, Fpxfft, Fpyfft, Fpzfft, Fvxfft, Fvyfft, Fvzfft, fmax):
     else:
         plt.semilogx(f, Fpxfft)
     plt.grid()
-    plt.title("Frequency distribution $F_{py}$")
+    plt.title("Spektrum $F_{py}$")
     plt.xlabel("$f  [ s^{-1} ]$")
     plt.ylabel("$A_{F_{p,y},fft}$")
     plt.savefig("plots/fpyfft.png", dpi=300)
@@ -120,7 +141,7 @@ def plot_fig_fft (f, Fpxfft, Fpyfft, Fpzfft, Fvxfft, Fvyfft, Fvzfft, fmax):
     # plt.xlim(0, fmax)
     plt.semilogx(f, Fpzfft)
     plt.grid()
-    plt.title("Frequency distribution $F_{pz}$")
+    plt.title("Spektrum $F_{pz}$")
     plt.xlabel("$f  [ s^{-1} ]$")
     plt.ylabel("$A_{F_{p,z},fft}$")
     plt.savefig("plots/fpzfft.png", dpi=300)
@@ -237,9 +258,6 @@ def main (argv):
     endtime = 10.0
     density = 1.0
     coeffs = False
-    calc_cd = False
-    calc_cl = False
-    calc_cm = False
     calc_fft = False
 
     cd_axis = 'x'
@@ -253,13 +271,14 @@ def main (argv):
     # coeff_area = 0.0051
     coeff_area = 0.0008
     u_c = 1
+    l_c = 1
 
     # 2 * Fw / rho * u_c^2  * A
 
     try:
-        opts, args = getopt.getopt(argv, "i:o:v:a:s:e:d:", ["input-file=", "output-file=", "inlet-velocity=", "reference-area", "start-time=", "end-time=", "density", "fft", "Cd"])
+        opts, args = getopt.getopt(argv, "i:o:v:a:s:e:d:", ["input-file=", "output-file=", "inlet-velocity=", "reference-area", "start-time=", "end-time=", "density", "fft", "coeffs"])
     except getopt.GetoptError:
-        print 'foamFancy_averageForces.py -i <inputfile> [-o <outputfile> -v velocity -s starttime -e endtime -a Area -d density --Cd --fft]'
+        print 'foamFancy_averageForces.py -i <inputfile> [-o <outputfile> -v velocity -s starttime -e endtime -a Area -d density --Coeffs --fft]'
         sys.exit(2)
 
     for opt, arg in opts:
@@ -288,17 +307,7 @@ def main (argv):
             calc_fft = True
         elif opt in ("--coeffs"):
             print "adding coefficients to the workflow"
-            calc_coeffs = True
-        elif opt in ("--Cd"):
-            print "adding drag coefficient calculation to the workflow"
-            calc_cd = True
-        elif opt in ("--Cl"):
-            print "adding lift coefficient calculation to the workflow"
-            calc_cl = True
-        elif opt in ("--Cm"):
-            print "adding moment coefficient calculation to the workflow"
-            calc_cm = True
-
+            coeffs = True
 
 
     raw = []    # leeres array initialisieren
@@ -338,10 +347,6 @@ def main (argv):
     print "Average Forces due to Pressure: ", Fp_avg
     print "Average Froces due to Viscous Effect: ", Fv_avg
 
-    if calc_cd == True:
-        Cd = (2 * (Fp_avg[0] + Fv_avg[0])) / ( u_c * u_c * coeff_area)
-        print "Average Drag Coefficient: ", Cd
-
     if not os.path.isdir('./plots'):
         os.mkdir('plots')
 
@@ -364,11 +369,13 @@ def main (argv):
         + str(Fv_avg[2])
         + '\n' )
 
-    if (calc_cd == True):
-        f_out.writelines('# Average Drag Coefficient:\n'
-            + 'Cd: '
-            + str(Cd)
-            + '\n')
+    if coeffs == True:
+        Cd = (2 * (Fp_avg[0] + Fv_avg[0])) / ( density * u_c * u_c * coeff_area)
+        print "Average Drag Coefficient: ", Cd
+        f_out.writelines('Average Drag Coefficient: ' + str(Cd) + '\n')
+        Cl = (2 * (Fp_avg[1] + Fv_avg[1])) / ( density * u_c * u_c * coeff_area)
+        print "Average Lift Coefficient: ", Cl
+        f_out.writelines('Average Lift Coefficient: ' + str(Cl) + '\n')
 
     f_out.close()
 
@@ -376,6 +383,9 @@ def main (argv):
 
     if calc_fft == True:
         fft_analysis(time, Fpx, Fpy, Fpz, Fvx, Fvy, Fvz, Fp_avg, Fv_avg)
+
+    if coeffs == True:
+        plot_Cx( (time * u_c * l_c) , ((2 * (Fpx + Fvx)) / ( density * u_c * u_c * coeff_area)), ((2 * (Fpy + Fvy)) / ( density * u_c * u_c * coeff_area)) )
 
     # nach Dr. Baars
     # Nfft = int(math.pow(2, math.ceil(math.log(len(Fx),2))))
