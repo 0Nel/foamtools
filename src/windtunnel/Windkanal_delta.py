@@ -4,97 +4,96 @@ import sys, getopt, os, numpy, glob, shutil
 import matplotlib.pyplot as plt
 
 # parameters for plotting
-params1 = {	'legend.fontsize' : 18,
-		'axes.titlesize' : 20, 	#Title 
-		'axes.labelsize' : 18	#Axenbeschriftung
-	  }
-plt.rcParams.update(params1)
+plotParameters = { 'legend.fontsize' : 18,
+					'axes.titlesize' : 20, 	#Title
+					'axes.labelsize' : 18	#Axenbeschriftung
+	  			 }
+plt.rcParams.update(plotParameters)
 
-# checks if the results directory already exists
-def checkdir():
-    print "checking directory"
+fluidParameters = 	{
+						'Ac' : 1,
+						'Uc' : 1,
+						'Rho' : 1
+					}
 
-# creates a new directory for the reynolds number results
-def mkdir(Re):
-    print "creating directory"
-# print the combined results into one file
-# REFACTOR
-def printRes(alpha, Cd, Cl, Cd_std, Cl_std, Re):		 #writes output data files
-    print "printing Results"
-    
+def parseStringToFloat(string):
+	try:
+		return float(string.replace(',', '.'))
+	except:
+		return string
 
-# creates matplotlib plots with the combined data
-def plot_fig (alpha, Cd, Cl, Cd_std, Cl_std, Re):
-    print "plotting figures"
-    
-### reference function to convert mV/V to N
-# REFACTOR to generic regression analysis function
-# see commentary above
-def mVtoC(param, Cl, Ac, Uc):
-    print "mv to Cx"
-    
-# REFACTOR with get reference lift
-def getCalibration(files):
-    print "getting calibration references"
+def parseLineToFloats(line):
+	try:
+		tmp = [parseStringToFloat(string) for string in line.split()]
+		if tmp:
+			return tmp
+	except:
+		return None
 
-def parseLine (line):
-    print "parsing lines"
+def parseLineToDicts(line):
 
-# refactor the parameters -> instead of allfiles the correct file path
-def average(allfiles, key, Re):                  #param = Dictionary and Key
-    print "averaging"
+	if len(line) == 0:
+		return
 
-def getKey(item):
-    print "getting key"
-    
-def merge(files, Re):
-    print "merging files"
-    
-def getData(filepaths):
-    print "collecting all input data"
+	if line.find('#') == 0:
+		return
 
-def getCalibration():
+	tmp = line.split()
+	if len(tmp) > 0:
+		# the general structure is supposed to be like this:
+		# NAME VALUE
+		# by name beeing a normal string (which we also don't touch)
+		# and value either being a float or a filepath.
+		if (os.path.isfile(tmp[1])):
+			return {tmp[0]:tmp[1]}
+		else:
+			return {tmp[0]:parseStringToFloat(tmp[1])}
+# parses a file and return a 2D array
+# if the file is empty or no floats are found the function
+# will return None. The same happens if the file can't be opened
+def parseFile (filepath):
+	# try opening the input file
+	try:
+		f_in = open(filepath, 'r')
+	except(IOError):
+		print "could not open file:", filepath
+		return None
 
-    
+	tmp = []		# temporary array for parsing lines
+	tmp2D = []		# temporary array for building a 2D array
+	for line in f_in:
+		tmp = parseLineToFloats(line)
+		if tmp != None:
+			tmp2D.append(tmp)
+			tmp = []
 
-    print "calculating calibration"
-    
-def getMount():
-    print "getting mount offset"
+	if tmp2D:
+		return numpy.array(tmp2D)
+	else:
+		return None
 
-def getZero():
-    print "getting zero offset"
+def parseConfigFile(fluidParameters, filepath = '.windkanal.config'):
+	try:
+		f_in = open(filepath, 'r')
+	except(IOError):
+		print "could not open file:", filepath
+		return
 
-def getDisk():
-    print "getting disk offset"
+	#for line in f_in:
+	for line in f_in:
+		try:
+			fluidParameters.update(parseLineToDicts(line))
+		except:
+			return
 
 #### START OF THE MAIN LOOP
 def main (argv):
+	file = raw_input("please provide a file: ")
+	print parseFile(file)
+	print fluidParameters
+	print parseConfigFile(fluidParameters, '.windkanal.config')
+	print fluidParameters
 
-    cal_files = True;
-    mount_files = False;
-    zero_files = False;
-    disk_files = False;
-
-    print "getting user input"
-
-    getData("/tmp/test")
-
-    if (cal_files):
-        getCalibration()
-
-    if (mount_files):
-        getMount()
-        
-    if (zero_files):
-        getZeor()
-    
-    if (disk_files):
-        getDisk()
-    
-    
-    
-    
 
 if __name__ == "__main__":
     main(sys.argv[1:])
