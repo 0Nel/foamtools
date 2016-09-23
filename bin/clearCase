@@ -1,0 +1,34 @@
+#!/bin/bash
+DELETE=()
+CHECK=("0." 1 2 3 4 5 6 7 8 9)
+COUNT=0
+if [[ -d "system" && -d "constant" && -d "0" ]] ; then
+	for i in ${CHECK[*]}; do
+		line="$(find . -maxdepth 1 -name "$i*" | xargs -r -e echo "Selected Directories: ")"
+		if [ ! -z "$line" ] ;  then
+			DELETE+=("$line")
+			echo $line
+		fi
+	done
+	if [ ${#DELETE[@]} -eq 0 ] ; then
+		echo "Nothing to clear here!"
+		exit 1
+	fi
+	echo "Do you wish to remove selected directories? (y/n)"
+	read choice
+	if [ $choice == "y" ] ; then
+		echo "Doing my job now, this could take a moment.."
+		while [ $COUNT -lt ${#DELETE[@]} ] ; do
+			echo "${DELETE[$COUNT]}" | sed 's/Selected/Removing/g' 
+			rm -r $(echo "${DELETE[$COUNT]:21}" | sed 's/\.\///g')
+			let COUNT+=1
+		done
+	else
+		echo "Okay Boss, aborting mission!"
+		exit 1
+	fi
+else
+	echo "You're not even in your case directory! I quit.."
+	exit 1
+fi
+exit 1
